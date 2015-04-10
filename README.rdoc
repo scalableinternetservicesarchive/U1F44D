@@ -1,0 +1,5 @@
+To get running use these commands:
+rake db:create db:migrate
+rails server
+
+then load http://localhost:3000
