@@ -20,3 +20,4 @@ https://www.pivotaltracker.com/n/projects/1321086
 ![alt text](http://1.gravatar.com/avatar/4cd4deb478e261b9e08dde442e7be60a?size=400px)
 
 ### Vicky Zhang
+![alt text](https://media.licdn.com/media/p/8/005/08a/28c/31134b9.jpg)
