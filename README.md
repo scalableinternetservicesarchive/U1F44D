@@ -1,6 +1,6 @@
 # 👍
 
-# SnapYak
+# SnapYak [![Build Status](https://travis-ci.org/scalableinternetservices/U1F44D.svg?branch=master)](https://travis-ci.org/scalableinternetservices/U1F44D)
 yikyak meets snapchat.
 
 https://www.pivotaltracker.com/n/projects/1321086
