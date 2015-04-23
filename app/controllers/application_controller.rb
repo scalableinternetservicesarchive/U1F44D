@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
 
   # Before every request, let's check if the session ID
   # cookie is set--if it isn't we'll go ahead and do so.
-  before_filter :set_session_cookie
+  before_action :set_session_cookie
+  protected
+
   def set_session_cookie
     if (!cookies[:snapyak_sid])
       # We aren't using securerandom here as it's slower, and overkill for our
