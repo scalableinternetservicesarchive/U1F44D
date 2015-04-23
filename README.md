@@ -5,6 +5,9 @@ yikyak meets snapchat.
 
 https://www.pivotaltracker.com/n/projects/1321086
 
+## API Documentation
+Check it out [here](http://docs.snapyak.apiary.io/).
+
 ## Team Members
 
 ### Connor Proctor
