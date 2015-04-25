@@ -7,7 +7,7 @@ var TopAppBar = React.createClass({
     return (
       <div className="app-bar">
         <nav>
-          <h1>{this.props.title}</h1>
+          <span className="nav-title">{this.props.title}</span>
         </nav>
       </div>
     );
