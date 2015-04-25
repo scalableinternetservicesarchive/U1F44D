@@ -3,6 +3,7 @@ var ListItem = React.createClass({
   render: function() {
     return (
       <div className="list-item">
+        <LoadingImage />
         <span>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit,
           sed do eiusmod tempor incididunt ut labore et dolore magna

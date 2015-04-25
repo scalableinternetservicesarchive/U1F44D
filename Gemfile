@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# autoprefix css rules for cross-browser compatibility
+gem "autoprefixer-rails"
 # Support React and JSX
 gem 'react-rails'
 # Use jquery as the JavaScript library
