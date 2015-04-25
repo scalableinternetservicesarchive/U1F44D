@@ -12,3 +12,6 @@
 !/log/.keep
 /tmp
 .idea
+
+# ignore third-party npm packages
+/node_modules
