@@ -1,14 +1,14 @@
 var React = require('react');
 
-var AppMain = React.createClass({
+var Card = React.createClass({
 
   render: function() {
     return (
-      <div className="app-main">
+      <div className="card">
         {this.props.children}
       </div>
-    )
+    );
   }
 });
 
-module.exports = AppMain;
+module.exports = Card;
