@@ -13,7 +13,9 @@
   },
   "homepage": "https://github.com/scalableinternetservices/U1F44D",
   "dependencies": {
-    "browserify": "^9.0.8"
+    "browserify": "^9.0.8",
+    "react": "^0.13.2",
+    "react-infinite-scroll": "^0.1.5"
   },
   "devDependencies": {
     "browserify-incremental": "^3.0.0",
