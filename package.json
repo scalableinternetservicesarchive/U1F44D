@@ -13,11 +13,15 @@
   },
   "homepage": "https://github.com/scalableinternetservices/U1F44D",
   "dependencies": {
+<<<<<<< HEAD
     "browserify": "^9.0.8",
+=======
+>>>>>>> origin/frontend_builds
     "react": "^0.13.2",
     "react-infinite-scroll": "^0.1.5"
   },
   "devDependencies": {
+    "browserify": "^9.0.8",
     "browserify-incremental": "^3.0.0",
     "reactify": "^1.1.0"
   }
