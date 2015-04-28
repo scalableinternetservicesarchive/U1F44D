@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ./main.js
-//= require ./session.js
+//= require react
+//= require react_ujs
+//= require components
+//= require_tree .
