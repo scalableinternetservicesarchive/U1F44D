@@ -1,5 +1,3 @@
-var React = require('react');
-
 var AppMain = React.createClass({
 
   render: function() {
@@ -10,5 +8,3 @@ var AppMain = React.createClass({
     )
   }
 });
-
-module.exports = AppMain;

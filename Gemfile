@@ -16,8 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # autoprefix css rules for cross-browser compatibility
 gem "autoprefixer-rails"
-# JS module support
-gem "browserify-rails"
+# Support React and JSX
+gem 'react-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -49,3 +49,4 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+

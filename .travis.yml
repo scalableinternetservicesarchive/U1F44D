@@ -2,8 +2,5 @@ language: ruby
 rvm:
   - 2.1.1
 
-before_install:
-  - npm install
-
 before_script:
   - mysql -e 'create database snapyak_test;'
