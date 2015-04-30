@@ -22,4 +22,12 @@ class ImagesControllerTest < ActionController::TestCase
     images = JSON.parse @response.body
     assert images[0][ 'created_at' ] >= images[1][ 'created_at' ]
   end
+
+  test "should allow you to create an image" do
+    test_image = "test/fixtures/test_image.jpg"
+    file = Rack::Test::UploadedFile.new(test_image, "image/jpeg")
+    post :upload, { image: file, lat: 100, long: 100 }
+    # For success, let's see if we got a URL back
+    assert JSON.parse( @response.body )[ 'url' ].length != 0
+  end
 end
