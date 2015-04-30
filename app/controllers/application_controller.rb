@@ -9,11 +9,18 @@ class ApplicationController < ActionController::Base
   protected
 
   def set_session_cookie
-    if (!cookies[:snapyak_sid])
-      # We aren't using securerandom here as it's slower, and overkill for our
-      # application. The chance of collisions is low here, and since it's
-      # an anonymous application anyway...
-      cookies[:snapyak_sid] = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
+    if !cookies[:snapyak_sid]
+      new_sid = ""
+      loop do
+        new_sid = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
+        break if !User.find_by_sid(new_sid)
+      end
+      User.create(sid: new_sid)
+      cookies[:snapyak_sid] = new_sid
+    end
+
+    if !User.find_by_sid cookies[:snapyak_sid]
+      User.create!(sid: cookies[:snapyak_sid])
     end
   end
 end
