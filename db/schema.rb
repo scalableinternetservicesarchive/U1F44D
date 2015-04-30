@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430085806) do
+ActiveRecord::Schema.define(version: 20150430091028) do
 
   create_table "images", force: :cascade do |t|
     t.integer  "score",            limit: 4
@@ -34,4 +34,11 @@ ActiveRecord::Schema.define(version: 20150430085806) do
   end
 
   add_index "users", ["sid"], name: "index_users_on_sid", unique: true, using: :btree
+
+  create_table "votes", id: false, force: :cascade do |t|
+    t.integer "user_id",  limit: 4, null: false
+    t.integer "image_id", limit: 4, null: false
+    t.boolean "upvote",   limit: 1
+  end
+
 end
