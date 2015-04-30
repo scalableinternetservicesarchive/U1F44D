@@ -1,21 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  url: http://placekitten.com/200/300 
   score: 9
   location_lat: 34.0722
   location_long: 118.4441
   author: testsid
 
 two:
-  url: http://placekitten.com/200/600 
   score: -3
   location_lat: 34.0722
   location_long: 118.4441
   author: testsid2
 
 three:
-  url: http://placekitten.com
   score: -6
   location_lat: 120.00
   location_long: 120.00

@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429191816) do
+ActiveRecord::Schema.define(version: 20150429212900) do
 
   create_table "images", force: :cascade do |t|
-    t.string   "url",           limit: 255
-    t.integer  "score",         limit: 4
-    t.float    "location_lat",  limit: 24
-    t.float    "location_long", limit: 24
-    t.string   "author",        limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "score",            limit: 4
+    t.float    "location_lat",     limit: 24
+    t.float    "location_long",    limit: 24
+    t.string   "author",           limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "img_file_name",    limit: 255
+    t.string   "img_content_type", limit: 255
+    t.integer  "img_file_size",    limit: 4
+    t.datetime "img_updated_at"
   end
 
 end
