@@ -29,5 +29,9 @@ class ImagesControllerTest < ActionController::TestCase
     post :upload, { image: file, lat: 100, long: 100 }
     # For success, let's see if we got a URL back
     assert JSON.parse( @response.body )[ 'url' ].length != 0
+
+    # Let's make sure the result matches our database too
+    img = Image.find( JSON.parse( @response.body )[ 'id' ] )
+    assert img.url == JSON.parse( @response.body )[ 'url' ]
   end
 end
