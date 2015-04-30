@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sid: thisisanextremelyrandomsid123456789012345678901234
+  karma: 42
+
+two:
+  sid: thisisnt
+  karma: 151
