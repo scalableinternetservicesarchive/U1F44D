@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # Image API endpoints
   get '/images' => 'images#index'
   post '/images' => 'images#upload'
+  post '/images/:id/up' => 'images#upvote'
+  get '/images/:id/up' => 'images#upvoted?'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
