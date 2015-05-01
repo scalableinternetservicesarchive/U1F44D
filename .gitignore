@@ -15,3 +15,6 @@
 
 # ignore third-party npm packages
 /node_modules
+
+# Ignore uploaded files
+public/system/images

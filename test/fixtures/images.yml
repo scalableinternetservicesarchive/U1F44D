@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score: 9
+  location_lat: 34.0722
+  location_long: 118.4441
+  author: testsid
+
+two:
+  score: -3
+  location_lat: 34.0722
+  location_long: 118.4441
+  author: testsid2
+
+three:
+  score: -6
+  location_lat: 120.00
+  location_long: 120.00
+  author: baduser
