@@ -1,4 +1,4 @@
 sudo yum install -y patch
 sudo yum install -y sqlite-devel
-sudo yum install nodejs npm --enablerepo=epel
+sudo yum install -y npm nodejs --enablerepo=epel
 npm install
