@@ -44,6 +44,41 @@ class ImagesController < ApplicationController
     render status:200, :json => to_json_safe_fields( image )
   end
 
+  # POST /images/image_id/up
+  #
+  # Upvote an image
+  def upvote
+    user = User.find_by_sid cookies[:snapyak_sid]
+    image = Image.find params[:id]
+    # @TODO make sure these resources exist
+    vote = image.votes.find_by_user_id user.id
+    if !vote
+      vote = Vote.new
+      vote.user = user
+      vote.image = image
+      vote.upvote = true
+      image.score += 1 if vote.save
+      image.save
+    elsif vote.downvote?
+      vote.upvote = true
+      vote.score += 2 if vote.save
+      image.save
+    end
+
+    render status: 200, nothing: true
+  end
+
+  def upvoted?
+    user = User.find_by_sid cookies[:snapyak_sid]
+    image = Image.find params[:id]
+    # @TODO make sure these resources exist
+    vote = image.votes.find_by_user_id user.id
+    has_upvote = false
+    has_upvote = true if vote && vote.upvote?
+
+    render status: 200, json: {upvoted: has_upvote}
+  end
+
   private
 
   # A helper to ensure that only the fields we want output are output

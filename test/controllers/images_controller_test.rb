@@ -34,4 +34,38 @@ class ImagesControllerTest < ActionController::TestCase
     img = Image.find( JSON.parse( @response.body )[ 'id' ] )
     assert img.url == JSON.parse( @response.body )[ 'url' ]
   end
+
+  test "should show that you haven't upvoted an image" do
+    image = Image.last
+    post :upvoted?, {id: image.id}
+
+    assert_equal false, JSON.parse(@response.body)['upvoted']
+  end
+
+  test "image can be upvoted" do
+    image = Image.last
+    og_vote_count = image.votes.count
+    og_image_score = image.score
+    post :upvote, {id: image.id}
+
+    assert_response 200
+    image.reload
+    assert_equal og_vote_count+1, image.votes.count
+    assert_equal og_image_score+1, image.score
+    assert image.votes.to_a.last.upvote?
+  end
+
+  test "should show that you have upvoted an image" do
+    image = Image.last
+    user = User.first
+    cookies[:snapyak_sid] = user.sid
+    vote = Vote.new
+    vote.image = image
+    vote.user = user
+    vote.upvote = true
+    vote.save!
+    post :upvoted?, {id: image.id}
+
+    assert_equal true, JSON.parse(@response.body)['upvoted']
+  end
 end
