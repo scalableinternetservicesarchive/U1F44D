@@ -24,7 +24,7 @@ module Snapyak
     config.active_record.raise_in_transactional_callbacks = true
 
     # use browserify to compile and package JS
-    config.browserify_rails.commandline_options = "-t [ reactify --es6 target --es5 ] --extension=\".js.jsx\""
+    config.browserify_rails.commandline_options = "-t [ reactify --es6 target --es5 ] --extension=\".js.jsx\" --extension=\".js\""
 
   end
 end
