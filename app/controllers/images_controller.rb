@@ -79,10 +79,18 @@ class ImagesController < ApplicationController
     render status: 200, json: {upvoted: has_upvote}
   end
 
+  def view
+    # @TODO return the requested image if it exists
+    send_file "#{Rails.root}/test/fixtures/test_image.jpg",
+      :type => 'image/jpg',
+      :disposition => 'inline',
+      status: 200 # should be 404, but it's not supported by all browsers
+  end
+
   private
 
   # A helper to ensure that only the fields we want output are output
   def to_json_safe_fields( img )
-    img.to_json( :except => [ :img_file_name, :img_content_type, :img_file_size, :img_updated_at, :updated_at ], :methods => :url ) 
+    img.to_json( :except => [ :img_file_name, :img_content_type, :img_file_size, :img_updated_at, :updated_at ], :methods => :url )
   end
 end

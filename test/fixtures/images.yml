@@ -3,13 +3,13 @@
 one:
   score: 9
   location_lat: 34.0722
-  location_long: 118.4441
+  location_long: -118.4441
   author: testsid
 
 two:
   score: -3
   location_lat: 34.0722
-  location_long: 118.4441
+  location_long: -118.4441
   author: testsid2
 
 three:
