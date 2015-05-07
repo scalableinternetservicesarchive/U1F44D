@@ -21,6 +21,7 @@
     "babelify": "^6.0.2",
     "browserify": "^9.0.8",
     "browserify-incremental": "^3.0.0",
-    "reactify": "^1.1.0"
+    "reactify": "^1.1.0",
+    "request": "^2.55.0"
   }
 }

@@ -39,9 +39,10 @@ class API {
                       qs: {
                         lat: position.coords.latitude,
                         long: position.coords.longitude},
+                      //TODO: Transfer Image Correctly
                       body: image}, function (error, response, body) {
           if (!error && response.statusCode == 200) {
-            callback(JSON.parse(body));
+            callback();
           }
           else if(error){
             errorCallback("An error occurred: ${error}");
@@ -94,7 +95,7 @@ class API {
     var query = "http://localhost:3000/images/${id}/up";
     request.post(query, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        callback(JSON.parse(body));
+        callback();
       }
       else if(error){
         errorCallback("An error occurred: ${error}");
@@ -110,7 +111,7 @@ class API {
     var query = "http://localhost:3000/images/${id}/down";
     request.post(query, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        callback(JSON.parse(body));
+        callback();
       }
       else if(error){
         errorCallback("An error occurred: ${error}");
