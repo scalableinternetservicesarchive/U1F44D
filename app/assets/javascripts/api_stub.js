@@ -6,78 +6,122 @@ var request = require('request');
 
 class API {
   //get images in JSON object for your location
-  getImages(callback) {
+  getImages(callback, errorCallback) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        var query = "/images?lat=".concat(position.coords.latitude, "&long=", position.coords.longitude);
-        //var query = "http://localhost:3000/images?lat=34.0722&long=118.4441";
-        request(query, function (error, response, body) {
+        request.get({url: "http://localhost:3000/images",
+          qs: {
+            lat: position.coords.latitude,
+            long: position.coords.longitude},
+          body: image}, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             callback(JSON.parse(body));
           }
+          else if(error){
+            errorCallback("An error occurred: ${error}");
+          }
+          else{
+            errorCallback("Response returned with bad status");
+          }
         });
-      }, this.showError);
+      }, this.handleGeolocationError);
     } else {
       //Handle error
-      //x.innerHTML = "Geolocation is not supported by this browser.";
+      errorCallback("Geolocation is not supported by this browser.");
     }
   }
 
   //post an image for your provided location
-  //Does this need a callback?
-  postImage(image, callback){
+  postImage(image, callback, errorCallback){
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        var query = "/images?lat=".concat(position.coords.latitude, "&long=", position.coords.longitude);
-        //var query = "http://localhost:3000/images?lat=34.0722&long=118.4441";
-        request.post({url: query, body: image}, function (error, response, body) {
+        request.post({url: "http://localhost:3000/images",
+                      qs: {
+                        lat: position.coords.latitude,
+                        long: position.coords.longitude},
+                      body: image}, function (error, response, body) {
           if (!error && response.statusCode == 200) {
-            //callback(JSON.parse(body));
-            //console.log(body);
+            callback(JSON.parse(body));
+          }
+          else if(error){
+            errorCallback("An error occurred: ${error}");
+          }
+          else{
+            errorCallback("Response returned with bad status");
           }
         });
       }, this.showError);
     } else {
       //Handle error
-      //x.innerHTML = "Geolocation is not supported by this browser.";
+      errorCallback("Geolocation is not supported by this browser.");
     }
   }
 
   //get whether you have upvote the post yet in json object
-  getUpvote(id, callback){
-    var query = "/images/".concat(id, "/up");
-    request(query, function (error, response, body) {
+  getUpvote(id, callback, errorCallback){
+    var query = "http://localhost:3000/images/${id}/up";
+    request.get(query, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         callback(JSON.parse(body));
+      }
+      else if(error){
+        errorCallback("An error occurred: ${error}");
+      }
+      else{
+        errorCallback("Response returned with bad status");
       }
     });
   }
 
   //get whether you have downvoted the post in json
-  getDownvote(id, callback){
-    var query = "/images/".concat(id, "/down");
-    request(query, function (error, response, body) {
+  getDownvote(id, callback, errorCallback){
+    var query = "http://localhost:3000/images/${id}/down";
+    request.get(query, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         callback(JSON.parse(body));
+      }
+      else if(error){
+        errorCallback("An error occurred: ${error}");
+      }
+      else{
+        errorCallback("Response returned with bad status");
       }
     });
   }
 
-  //Does this need a callback?
   //upvote the image with the given id
-  postUpvote(id){
-    var query = "/images/".concat(id, "/up");
-    request.post(query);
+  postUpvote(id, callback, errorCallback){
+    var query = "http://localhost:3000/images/${id}/up";
+    request.post(query, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        callback(JSON.parse(body));
+      }
+      else if(error){
+        errorCallback("An error occurred: ${error}");
+      }
+      else{
+        errorCallback("Response returned with bad status");
+      }
+    });
   }
 
-  //Does this need a callback?
   //downvote the image with the given id
-  postDownvote(id){
-    var query = "/images/".concat(id, "/down");
-    request.post(query);
+  postDownvote(id, callback, errorCallback){
+    var query = "http://localhost:3000/images/${id}/down";
+    request.post(query, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        callback(JSON.parse(body));
+      }
+      else if(error){
+        errorCallback("An error occurred: ${error}");
+      }
+      else{
+        errorCallback("Response returned with bad status");
+      }
+    });
   }
 
-  showError (error) {
+  handleGeolocationError (error) {
     switch (error.code) {
       case error.PERMISSION_DENIED:
                //x.innerHTML = "User denied the request for Geolocation."
