@@ -1,26 +1,26 @@
 /**
  * Created by kaceyryan on 5/2/15.
  */
-
 var request = require('request');
 
 class API {
   //get images in JSON object for your location
   getImages(callback, errorCallback) {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        request.get({url: "http://localhost:3000/images",
+      navigator.geolocation.getCurrentPosition(function(position) {
+        request.get({
+          url: "http://localhost:3000/images",
           qs: {
             lat: position.coords.latitude,
-            long: position.coords.longitude},
-          body: image}, function (error, response, body) {
+            long: position.coords.longitude
+          },
+          body: image
+        }, function(error, response, body) {
           if (!error && response.statusCode == 200) {
             callback(JSON.parse(body));
-          }
-          else if(error){
-            errorCallback("An error occurred: ${error}");
-          }
-          else{
+          } else if (error) {
+            errorCallback(`An error occurred: ${error}`);
+          } else {
             errorCallback("Response returned with bad status");
           }
         });
@@ -32,22 +32,23 @@ class API {
   }
 
   //post an image for your provided location
-  postImage(image, callback, errorCallback){
+  postImage(image, callback, errorCallback) {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        request.post({url: "http://localhost:3000/images",
-                      qs: {
-                        lat: position.coords.latitude,
-                        long: position.coords.longitude},
-                      //TODO: Transfer Image Correctly
-                      body: image}, function (error, response, body) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        request.post({
+          url: "http://localhost:3000/images",
+          qs: {
+            lat: position.coords.latitude,
+            long: position.coords.longitude
+          },
+          //TODO: Transfer Image Correctly
+          body: image
+        }, function(error, response, body) {
           if (!error && response.statusCode == 200) {
             callback();
-          }
-          else if(error){
-            errorCallback("An error occurred: ${error}");
-          }
-          else{
+          } else if (error) {
+            errorCallback(`An error occurred: ${error}`);
+          } else {
             errorCallback("Response returned with bad status");
           }
         });
@@ -59,88 +60,77 @@ class API {
   }
 
   //get whether you have upvote the post yet in json object
-  getUpvote(id, callback, errorCallback){
+  getUpvote(id, callback, errorCallback) {
     var query = "http://localhost:3000/images/${id}/up";
-    request.get(query, function (error, response, body) {
+    request.get(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback(JSON.parse(body));
-      }
-      else if(error){
-        errorCallback("An error occurred: ${error}");
-      }
-      else{
+      } else if (error) {
+        errorCallback(`An error occurred: ${error}`);
+      } else {
         errorCallback("Response returned with bad status");
       }
     });
   }
 
   //get whether you have downvoted the post in json
-  getDownvote(id, callback, errorCallback){
+  getDownvote(id, callback, errorCallback) {
     var query = "http://localhost:3000/images/${id}/down";
-    request.get(query, function (error, response, body) {
+    request.get(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback(JSON.parse(body));
-      }
-      else if(error){
-        errorCallback("An error occurred: ${error}");
-      }
-      else{
+      } else if (error) {
+        errorCallback(`An error occurred: ${error}`);
+      } else {
         errorCallback("Response returned with bad status");
       }
     });
   }
 
   //upvote the image with the given id
-  postUpvote(id, callback, errorCallback){
+  postUpvote(id, callback, errorCallback) {
     var query = "http://localhost:3000/images/${id}/up";
-    request.post(query, function (error, response, body) {
+    request.post(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback();
-      }
-      else if(error){
-        errorCallback("An error occurred: ${error}");
-      }
-      else{
+      } else if (error) {
+        errorCallback(`An error occurred: ${error}`);
+      } else {
         errorCallback("Response returned with bad status");
       }
     });
   }
 
   //downvote the image with the given id
-  postDownvote(id, callback, errorCallback){
+  postDownvote(id, callback, errorCallback) {
     var query = "http://localhost:3000/images/${id}/down";
-    request.post(query, function (error, response, body) {
+    request.post(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback();
-      }
-      else if(error){
-        errorCallback("An error occurred: ${error}");
-      }
-      else{
+      } else if (error) {
+        errorCallback(`An error occurred: ${error}`);
+      } else {
         errorCallback("Response returned with bad status");
       }
     });
   }
 
-  handleGeolocationError (error) {
+  handleGeolocationError(error) {
     switch (error.code) {
       case error.PERMISSION_DENIED:
-               //x.innerHTML = "User denied the request for Geolocation."
+        //x.innerHTML = "User denied the request for Geolocation."
         break;
       case error.POSITION_UNAVAILABLE:
-               //x.innerHTML = "Location information is unavailable."
+        //x.innerHTML = "Location information is unavailable."
         break;
       case error.TIMEOUT:
-               //x.innerHTML = "The request to get user location timed out."
+        //x.innerHTML = "The request to get user location timed out."
         break;
       case error.UNKNOWN_ERROR:
-               //x.innerHTML = "An unknown error occurred."
+        //x.innerHTML = "An unknown error occurred."
         break;
     }
   }
 }
 
-
 module.exports = new API();
-
-window.API = module.exports;
