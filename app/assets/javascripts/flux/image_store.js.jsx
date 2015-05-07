@@ -1,4 +1,4 @@
-var API = require('../API');
+var API = require('../api_stub');
 var Dispatcher = require('./dispatcher');
 
 class ImageStore {

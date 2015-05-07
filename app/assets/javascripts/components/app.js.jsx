@@ -1,8 +1,7 @@
 var AppMain = require('./app_main');
-var InfiniteList = require('./infinite_list');
 var React = require('react');
 var TopAppBar = require('./top_app_bar');
-var Post = require('./post');
+var PostList = require('./post_list');
 
 var App = React.createClass({
 
@@ -11,7 +10,7 @@ var App = React.createClass({
       <div>
         <TopAppBar title="SnapYak" />
         <AppMain>
-          <Post />
+          <PostList />
         </AppMain>
       </div>
     );

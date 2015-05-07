@@ -14,7 +14,6 @@ class API {
             lat: position.coords.latitude,
             long: position.coords.longitude
           },
-          body: image
         }, function(error, response, body) {
           if (!error && response.statusCode == 200) {
             callback(JSON.parse(body));
