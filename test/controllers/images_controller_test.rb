@@ -84,7 +84,7 @@ class ImagesControllerTest < ActionController::TestCase
 
     assert_response 200
     image.reload
-    assert_equal og_vote_count-1, image.votes.count
+    assert_equal og_vote_count+1, image.votes.count
     assert_equal og_image_score-1, image.score
     assert image.votes.to_a.last.downvote?
   end
