@@ -1,5 +1,4 @@
 var AppMain = require('./app_main');
-var React = require('react');
 var TopAppBar = require('./top_app_bar');
 var PostList = require('./post_list');
 

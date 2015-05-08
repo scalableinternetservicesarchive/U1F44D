@@ -1,6 +1,5 @@
 var CommentList = require('./comment_list');
 var CommentForm = require('./comment_form');
-var React = require('react');
 
 var data = [
   {author: "Vicky Zhang", text: " This is one comment This is one comment " +

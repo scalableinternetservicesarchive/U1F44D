@@ -1,4 +1,3 @@
-var React = require('react');
 
 var TopAppBar = React.createClass({
   propTypes: {
