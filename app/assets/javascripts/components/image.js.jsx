@@ -1,4 +1,3 @@
-var ImageLoader = require('react-imageloader');
 var LoadingSpinner = require('./loading_spinner');
 var React = require('react');
 
@@ -7,15 +6,42 @@ var Image = React.createClass({
     src: React.PropTypes.string
   },
 
-  render: function() {
-    var loadingSpinner = () => <LoadingSpinner />;
-    return (
-      <div className="image">
-        <ImageLoader src={this.props.src} preloader={loadingSpinner}>
-          Image loading failed!
-        </ImageLoader>
-      </div>
-    );
+  getInitialState: function() {
+    return {
+      loaded: false,
+    };
+  },
+
+  onLoad: function() {
+    if (this.isMounted()) {
+      this.setState({
+        loaded: true,
+      });
+    }
+  },
+
+  componentDidMount: function() {
+    // create <img> without putting it in the DOM
+    var image = new window.Image();
+    image.src = this.props.src;
+    image.onload = this.onLoad;
+  },
+
+  render() {
+    if (this.state.loaded) {
+      return (
+        <div className="image">
+          <LoadingSpinner className="spinner-loaded" />
+          <img src={this.props.src} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="image">
+          <LoadingSpinner className="spinner-loading" />
+        </div>
+      );
+    }
   }
 });
 

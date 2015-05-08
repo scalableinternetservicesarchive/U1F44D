@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var ImageStore = require('../flux/image_store');
-var Post = require('./Post');
+var Post = require('./post');
 var React = require('react');
 var StateFromStore = require('react-components/state-from-store-mixin');
 
