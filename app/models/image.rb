@@ -6,6 +6,6 @@ class Image < ActiveRecord::Base
 
   def url
     # @TODO use the right URL...
-    return "http://thesnapyak.com/images/" + read_attribute(:id).to_s + ".jpg"
+    return "/images/view/" + read_attribute(:id).to_s
   end
 end

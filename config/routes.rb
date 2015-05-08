@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Image API endpoints
   get '/images' => 'images#index'
   post '/images' => 'images#upload'
+  get '/images/view/:id' => 'images#view'
   post '/images/:id/up' => 'images#upvote'
   get '/images/:id/up' => 'images#upvoted?'
 
