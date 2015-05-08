@@ -79,6 +79,41 @@ class ImagesController < ApplicationController
     render status: 200, json: {upvoted: has_upvote}
   end
 
+  # POST /images/image_id/down
+  #
+  # Downvote an image
+  def downvote
+    user = User.find_by_sid cookies[:snapyak_sid]
+    image = Image.find params[:id]
+    # @TODO make sure these resources exist
+    vote = image.votes.find_by_user_id user.id
+    if !vote
+      vote = Vote.new
+      vote.user = user
+      vote.image = image
+      vote.downvote = true
+      image.score -= 1 if vote.save
+      image.save
+    elsif vote.upvote?
+      vote.downvote = true
+      vote.score -= 2 if vote.save
+      image.save
+    end
+
+    render status: 200, nothing: true
+  end
+
+  def downvoted?
+    user = User.find_by_sid cookies[:snapyak_sid]
+    image = Image.find params[:id]
+    # @TODO make sure these resources exist
+    vote = image.votes.find_by_user_id user.id
+    has_downvote = false
+    has_downvote = true if vote && vote.downvote?
+
+    render status: 200, json: {downvoted: has_downvote}
+  end
+
   private
 
   # A helper to ensure that only the fields we want output are output

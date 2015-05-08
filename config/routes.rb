@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/images' => 'images#upload'
   post '/images/:id/up' => 'images#upvote'
   get '/images/:id/up' => 'images#upvoted?'
+  post '/images/:id/down' => 'images#downvote'
+  get '/images/:id/down' => 'images#downvoted?'
 
 
 
