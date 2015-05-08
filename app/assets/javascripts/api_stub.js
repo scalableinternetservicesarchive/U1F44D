@@ -2,9 +2,8 @@
  * Created by kaceyryan on 5/2/15.
  */
 var request = require('request');
-
+var host = window.location.host;
 class API {
-  var host = window.location.host;
   //get images in JSON object for your location
   getImages(callback, errorCallback) {
     if (navigator.geolocation) {
