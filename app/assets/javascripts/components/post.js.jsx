@@ -1,20 +1,20 @@
 var Card = require('./card');
-var LoadingImage = require('./loading_image');
-var CommentBox = require('./comment_box');
-var React = require('react');
+var Image = require('./image');
 
 var Post = React.createClass({
+  propTypes: {
+    post: React.PropTypes.object,
+  },
 
   render: function() {
     return (
       <div className="post">
         <Card>
-          <LoadingImage />
+          <Image src={this.props.post.url}/>
           <p>
             Lorem ipsum dolor sit amet eiusmod, consectetur
             adipiscing elit, sed do .
-            </p>
-            <CommentBox />
+          </p>
         </Card>
       </div>
     );

@@ -1,6 +1,5 @@
 var ListItem = require('./list_item');
 var LoadingSpinner = require('./loading_spinner');
-var React = require('react');
 var InfiniteScroll = require('react-infinite-scroll')(React);
 
 var InfiniteList = React.createClass({

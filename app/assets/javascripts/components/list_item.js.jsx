@@ -1,6 +1,5 @@
 var Card = require('./card');
-var LoadingImage = require('./loading_image');
-var React = require('react');
+var Image = require('./image');
 
 var ListItem = React.createClass({
 
@@ -8,7 +7,7 @@ var ListItem = React.createClass({
     return (
       <div className="list-item">
         <Card>
-          <LoadingImage />
+          <Image />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna

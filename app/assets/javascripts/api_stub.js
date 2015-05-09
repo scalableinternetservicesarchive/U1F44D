@@ -2,19 +2,18 @@
  * Created by kaceyryan on 5/2/15.
  */
 var request = require('request');
-
+var host = window.location.host;
 class API {
   //get images in JSON object for your location
   getImages(callback, errorCallback) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         request.get({
-          url: "http://localhost:3000/images",
+          url: `${host}/images`,
           qs: {
             lat: position.coords.latitude,
             long: position.coords.longitude
           },
-          body: image
         }, function(error, response, body) {
           if (!error && response.statusCode == 200) {
             callback(JSON.parse(body));
@@ -36,7 +35,7 @@ class API {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         request.post({
-          url: "http://localhost:3000/images",
+          url: `${host}/images`,
           qs: {
             lat: position.coords.latitude,
             long: position.coords.longitude
@@ -61,7 +60,7 @@ class API {
 
   //get whether you have upvote the post yet in json object
   getUpvote(id, callback, errorCallback) {
-    var query = "http://localhost:3000/images/${id}/up";
+    var query = `${host}/images/${id}/up`;
     request.get(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback(JSON.parse(body));
@@ -75,7 +74,7 @@ class API {
 
   //get whether you have downvoted the post in json
   getDownvote(id, callback, errorCallback) {
-    var query = "http://localhost:3000/images/${id}/down";
+    var query = `${host}/images/${id}/down`;
     request.get(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback(JSON.parse(body));
@@ -89,7 +88,7 @@ class API {
 
   //upvote the image with the given id
   postUpvote(id, callback, errorCallback) {
-    var query = "http://localhost:3000/images/${id}/up";
+    var query = `${host}/images/${id}/up`;
     request.post(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback();
@@ -103,7 +102,7 @@ class API {
 
   //downvote the image with the given id
   postDownvote(id, callback, errorCallback) {
-    var query = "http://localhost:3000/images/${id}/down";
+    var query = `${host}/images/${id}/down`;
     request.post(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback();
