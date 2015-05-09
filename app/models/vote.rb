@@ -7,4 +7,8 @@ class Vote < ActiveRecord::Base
   def downvote?
     !upvote?
   end
+
+  def downvote=(down_bool)
+    upvote = !down_bool
+  end
 end

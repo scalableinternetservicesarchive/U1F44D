@@ -68,4 +68,38 @@ class ImagesControllerTest < ActionController::TestCase
 
     assert_equal true, JSON.parse(@response.body)['upvoted']
   end
+
+  test "should show that you haven't downvoted an image" do
+    image = Image.last
+    post :downvoted?, {id: image.id}
+
+    assert_equal false, JSON.parse(@response.body)['downvoted']
+  end
+
+  test "image can be downvoted" do
+    image = Image.last
+    og_vote_count = image.votes.count
+    og_image_score = image.score
+    post :downvote, {id: image.id}
+
+    assert_response 200
+    image.reload
+    assert_equal og_vote_count+1, image.votes.count
+    assert_equal og_image_score-1, image.score
+    assert image.votes.to_a.last.downvote?
+  end
+
+  test "should show that you have downvoted an image" do
+    image = Image.last
+    user = User.first
+    cookies[:snapyak_sid] = user.sid
+    vote = Vote.new
+    vote.image = image
+    vote.user = user
+    vote.downvote = true
+    vote.save!
+    post :downvoted?, {id: image.id}
+
+    assert_equal true, JSON.parse(@response.body)['downvoted']
+  end
 end
