@@ -122,6 +122,13 @@ class ImagesController < ApplicationController
       status: 200 # should be 404, but it's not supported by all browsers
   end
 
+  def comments
+    image = Image.find params[:id]
+    comments = image.comments
+
+    render status: 200, json: comments
+  end
+
   private
 
   # A helper to ensure that only the fields we want output are output

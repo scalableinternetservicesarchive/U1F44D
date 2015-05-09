@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   get '/images' => 'images#index'
   post '/images' => 'images#upload'
   get '/images/view/:id' => 'images#view'
+
   post '/images/:id/up' => 'images#upvote'
   get '/images/:id/up' => 'images#upvoted?'
   post '/images/:id/down' => 'images#downvote'
   get '/images/:id/down' => 'images#downvoted?'
 
-
+  get 'images/:id/comments' => 'images#comments'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
