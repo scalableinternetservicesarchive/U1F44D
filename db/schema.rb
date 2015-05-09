@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430231021) do
+ActiveRecord::Schema.define(version: 20150509223803) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "image_id",   limit: 4
+    t.integer  "user_id",    limit: 4
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "comments", ["image_id"], name: "index_comments_on_image_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.integer  "score",            limit: 4
@@ -50,4 +61,6 @@ ActiveRecord::Schema.define(version: 20150430231021) do
 
   add_index "votes", ["image_id", "user_id"], name: "index_votes_on_image_id_and_user_id", unique: true, using: :btree
 
+  add_foreign_key "comments", "images"
+  add_foreign_key "comments", "users"
 end
