@@ -20,6 +20,7 @@
     "react-components": "^0.2.0",
     "react-infinite-scroll": "^0.1.5",
     "react-loadermixin": "^1.0.4",
+    "reactify": "^1.1.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
