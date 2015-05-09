@@ -129,6 +129,20 @@ class ImagesController < ApplicationController
     render status: 200, json: comments
   end
 
+  def add_comment
+    user = User.find_by_sid cookies[:snapyak_sid]
+    image = Image.find params[:id]
+    text = params[:text]
+
+    comment = Comment.new
+    comment.text = text
+    comment.user = user
+    comment.image = image
+    comment.save
+
+    render status: 200, json: comment
+  end
+
   private
 
   # A helper to ensure that only the fields we want output are output
