@@ -1,6 +1,5 @@
 var Card = require('./card');
 var Image = require('./image');
-var React = require('react');
 
 var ListItem = React.createClass({
 

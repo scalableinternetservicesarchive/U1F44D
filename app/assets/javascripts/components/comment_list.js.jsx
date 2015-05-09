@@ -1,4 +1,3 @@
-var React = require('react');
 var Comment= require('./comment');
 
 var CommentList = React.createClass({

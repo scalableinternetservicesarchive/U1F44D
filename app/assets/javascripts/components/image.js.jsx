@@ -1,5 +1,4 @@
 var LoadingSpinner = require('./loading_spinner');
-var React = require('react');
 
 var Image = React.createClass({
   propTypes: {
