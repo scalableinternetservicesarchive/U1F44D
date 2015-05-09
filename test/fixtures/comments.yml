@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  image_id: 
-  user_id: 
-  text: MyText
+  image: one
+  user: one
+  text: First post!!!1!
 
 two:
-  image_id: 
-  user_id: 
-  text: MyText
+  image: two
+  user: one
+  text: I like comments
