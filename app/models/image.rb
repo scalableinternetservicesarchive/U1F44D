@@ -3,6 +3,7 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :img, :content_type => /\Aimage\/.*\Z/
 
   has_many :votes
+  has_many :comments
 
   def url
     # @TODO use the right URL...

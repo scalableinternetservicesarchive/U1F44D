@@ -102,4 +102,22 @@ class ImagesControllerTest < ActionController::TestCase
 
     assert_equal true, JSON.parse(@response.body)['downvoted']
   end
+
+  test "should be able to get image comments" do
+    image = Image.find images(:one).id
+    post :comments, {id: image.id}
+
+    assert_equal "First post!!!1!", JSON.parse(@response.body)[0]['text']
+  end
+
+  test "should be able to post comment" do
+    image = Image.find images(:one).id
+    og_comment_count = image.comments.count
+    body = "whooaaaa"
+    post :add_comment, {id: image.id, text: body}
+
+    image.reload
+    assert_equal og_comment_count+1, image.comments.count
+    assert_equal body, image.comments.last.text
+  end
 end

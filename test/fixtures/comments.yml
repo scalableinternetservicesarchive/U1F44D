@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: one
+  user: one
+  text: First post!!!1!
+
+two:
+  image: two
+  user: one
+  text: I like comments
+
+three:
+  image: two
+  user: two
+  text: Shut up, comments suck.
+  
