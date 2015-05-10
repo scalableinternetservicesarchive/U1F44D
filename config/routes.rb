@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post '/images/:id/down' => 'images#downvote'
   get '/images/:id/down' => 'images#downvoted?'
 
-  get 'images/:id/comments' => 'images#comments'
+  get '/images/:id/comments' => 'images#comments'
   post '/images/:id/comments' => 'images#add_comment'
 
   # The priority is based upon order of creation: first created -> highest priority.

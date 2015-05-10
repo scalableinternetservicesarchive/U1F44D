@@ -113,10 +113,11 @@ class ImagesControllerTest < ActionController::TestCase
   test "should be able to post comment" do
     image = Image.find images(:one).id
     og_comment_count = image.comments.count
-    post :add_comment, {id: image.id, text: "whooaaaa"}
+    body = "whooaaaa"
+    post :add_comment, {id: image.id, text: body}
 
     image.reload
     assert_equal og_comment_count+1, image.comments.count
-    assert_equal "whooaaaa", image.comments.last.text
+    assert_equal body, image.comments.last.text
   end
 end

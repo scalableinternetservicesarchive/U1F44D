@@ -9,3 +9,9 @@ two:
   image: two
   user: one
   text: I like comments
+
+three:
+  image: two
+  user: two
+  text: Shut up, comments suck.
+  
