@@ -9,7 +9,7 @@ class API {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         request.get({
-          url: `${host}/images`,
+          url: `http://${host}/images`,
           qs: {
             lat: position.coords.latitude,
             long: position.coords.longitude
