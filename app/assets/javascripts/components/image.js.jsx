@@ -2,7 +2,15 @@ var LoadingSpinner = require('./loading_spinner');
 
 var Image = React.createClass({
   propTypes: {
-    src: React.PropTypes.string
+    src: React.PropTypes.string,
+    isAsync: React.PropTypes.bool,
+  },
+
+  getDefaultProps: function() {
+    return {
+      src: '',
+      isAsync: true,
+    };
   },
 
   getInitialState: function() {
@@ -27,17 +35,25 @@ var Image = React.createClass({
   },
 
   render() {
-    if (this.state.loaded) {
-      return (
-        <div className="image">
-          <LoadingSpinner className="spinner-loaded" />
-          <img src={this.props.src} />
-        </div>
-      );
+    if (this.props.isAsync) {
+      if (this.state.loaded) {
+        return (
+          <div className="image">
+            <LoadingSpinner className="spinner-loaded" />
+            <img src={this.props.src} />
+          </div>
+        );
+      } else {
+        return (
+          <div className="image">
+            <LoadingSpinner className="spinner-loading" />
+          </div>
+        );
+      }
     } else {
       return (
         <div className="image">
-          <LoadingSpinner className="spinner-loading" />
+          <img src={this.props.src} />
         </div>
       );
     }
