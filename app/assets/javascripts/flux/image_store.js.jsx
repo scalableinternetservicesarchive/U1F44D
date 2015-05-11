@@ -1,16 +1,20 @@
 var API = require('../api_stub');
 var Dispatcher = require('./dispatcher');
+var Store = require('./store');
 
-class ImageStore {
+class ImageStore extends Store {
   constructor() {
+    super();
     this._images = Object.create(null);
-    this._listeners = [];
 
     Dispatcher.register((payload) => {
       switch (payload.actionType) {
         case 'refresh_images':
           this._images = Object.create(null);
           this.getImages();
+          break;
+        case 'post_image':
+          this._postImage(payload.imageUri);
           break;
       }
     });
@@ -35,19 +39,13 @@ class ImageStore {
     return this._images;
   }
 
-  _notify() {
-    this._listeners.forEach((callback) => callback());
-  }
-
-  addChangeListener(callback) {
-    this._listeners.unshift(callback);
-  }
-
-  removeChangeListener(key) {
-    var index = this._listeners.indexOf(key);
-    if (index > -1) {
-      this._listeners.splice(index, 1);
-    }
+  _postImage(imageUri) {
+    API.postImage(imageUri, () => {
+      this._fetchImages();
+    },
+    (error) => {
+      console.error(`Error posting image: ${error}`);
+    })
   }
 }
 
