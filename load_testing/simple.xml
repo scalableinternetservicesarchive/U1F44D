@@ -14,8 +14,14 @@
 
 
   <load>
-    <arrivalphase phase="1" duration="10" unit="second">
+    <arrivalphase phase="1" duration="30" unit="second">
       <users arrivalrate="1" unit="second"></users>
+    </arrivalphase>
+    <arrivalphase phase="2" duration="30" unit="second">
+      <users arrivalrate="2" unit="second"></users>
+    </arrivalphase>
+    <arrivalphase phase="3" duration="30" unit="second">
+      <users arrivalrate="4" unit="second"></users>
     </arrivalphase>
   </load>
 
@@ -32,6 +38,9 @@
     <session name="http-example" probability="100" type="ts_http">
       <request>
         <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url='/images?lat=34.0722&amp;long=-118.4441' version='1.1' method='GET'></http>
       </request>
     </session>
   </sessions>
