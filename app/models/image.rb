@@ -20,6 +20,5 @@ class Image < ActiveRecord::Base
     # @TODO use the right URL...
     #this function needs to be changed to return the s3 url
     return "http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/#{id}"
-    # return "/images/view/" + read_attribute(:id).to_s
   end
 end
