@@ -32,6 +32,7 @@ body {
       float: right;
       a {
         margin-left: 15px;
+        cursor: pointer;
       }
     }
   }
@@ -77,6 +78,55 @@ body {
     position: absolute;
     left: $list-width/2 - $spinner-width/2;
     top: $list-width/2 - $spinner-width/2;
+  }
+}
+
+.image-submit-form {
+  width: $list-width;
+  height: $list-width;
+  position: absolute;
+  top: 0;
+  left: 0;
+  label {
+    line-height: $list-width;
+    text-align: center;
+    display: inherit;
+    font-size: 25px;
+  }
+  input {
+    opacity: 0;
+  }
+  input, .fake-input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 75px;
+    height: 75px;
+  }
+  .fake-input {
+    text-align:center;
+    font: 4em "Open Sans", sans-serify;
+    line-height: 75px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+  }
+  button {
+    display: block;
+    height: 3rem;
+    line-height: 3rem;
+    color: white;
+    background-color: $appbar-color;
+    cursor: pointer;
+    padding: 0 4rem;
+    @include border-radius(3px);
+    border: none;
+    @include box-shadow(0px, 0px, 7px, gray);
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 1rem;
+    left: $list-width/2 - 176px/2px;
+    animation: fadein 0.5s;
+    width: 176px;
   }
 }
 

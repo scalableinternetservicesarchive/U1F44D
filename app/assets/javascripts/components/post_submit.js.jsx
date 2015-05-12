@@ -2,6 +2,37 @@ var Card = require('./card');
 var Dispatcher = require('../flux/dispatcher');
 var Image = require('./image');
 
+var PostSubmitForm = React.createClass({
+  propTypes: {
+    fileUri: React.PropTypes.string,
+  },
+
+  submitPost: function(event) {
+    event.preventDefault();
+    Dispatcher.dispatch({
+      actionType: 'post_image',
+      imageUri: this.props.fileUri
+    });
+  },
+
+  render: function() {
+    var label = this.props.fileUri ?
+      undefined :
+      <label>Upload a picture!</label>;
+    var submitButton = this.props.fileUri ?
+      <button type="submit">Submit</button> :
+      undefined;
+    return (
+      <form className="image-submit-form" onSubmit={this.submitPost}>
+        {label}
+        <div className="fake-input">+</div>
+        <input type="file" onChange={this.props.onChange} />
+        {submitButton}
+      </form>
+    );
+  }
+});
+
 var PostSubmit = React.createClass({
   getInitialState: function() {
     return {};
@@ -9,7 +40,6 @@ var PostSubmit = React.createClass({
 
   submitPost: function(event) {
     event.preventDefault();
-    console.log('submitting post');
     Dispatcher.dispatch({
       actionType: 'post_image',
       imageUri: this.state.fileUri
@@ -35,16 +65,14 @@ var PostSubmit = React.createClass({
   },
 
   render: function() {
-
     return (
       <div className="post">
         <Card>
-          <form onSubmit={this.submitPost}>
-            <label>Upload a picture!</label>
-            <input type="file" onChange={this.changeImage} />
-            <button type="submit">Submit</button>
-          </form>
-          <Image src={this.state.fileUri} isAsync={false} />
+          <Image src={this.state.fileUri} isAsync={false}>
+            <PostSubmitForm
+              fileUri={this.state.fileUri}
+              onChange={this.changeImage} />
+          </Image>
         </Card>
       </div>
     );
