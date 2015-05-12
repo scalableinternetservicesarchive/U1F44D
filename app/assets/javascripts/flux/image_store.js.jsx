@@ -1,5 +1,6 @@
 var API = require('../api_stub');
 var Dispatcher = require('./dispatcher');
+var _ = require('underscore');
 
 class ImageStore {
   constructor() {
@@ -11,6 +12,14 @@ class ImageStore {
         case 'refresh_images':
           this._images = Object.create(null);
           this.getImages();
+          break;
+        case 'upvote':
+          var id = payload.id;
+          this.upvote(id);
+          break;
+        case 'downvote':
+          var id = payload.id;
+          this.downvote(id);
           break;
       }
     });
@@ -48,6 +57,39 @@ class ImageStore {
     if (index > -1) {
       this._listeners.splice(index, 1);
     }
+  }
+
+  upvote(id) {
+    console.log(id);
+    var my_image = _.find(this._images, function(obj) { return obj.id == id });
+    console.log(my_image);
+    API.postUpvote(
+      id,
+      (success) => {
+        console.log("success");
+      },
+      (error) => {
+        console.error('Error upvote');
+      }
+    );
+      my_image.score++;
+      this._notify();
+  }
+
+  downvote(id) {
+    var my_image = _.find(this._images, function(obj) { return obj.id == id });
+    console.log(my_image);
+    API.postDownvote(
+      id,
+      (success) => {
+        console.log("success");
+      },
+      (error) => {
+        console.error('Error downvote');
+      }
+    );
+      my_image.score--;
+      this._notify();
   }
 }
 

@@ -88,7 +88,7 @@ class API {
 
   //upvote the image with the given id
   postUpvote(id, callback, errorCallback) {
-    var query = `${host}/images/${id}/up`;
+    var query = `http://${host}/images/${id}/up`;
     request.post(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback();
@@ -102,7 +102,7 @@ class API {
 
   //downvote the image with the given id
   postDownvote(id, callback, errorCallback) {
-    var query = `${host}/images/${id}/down`;
+    var query = `http://${host}/images/${id}/down`;
     request.post(query, function(error, response, body) {
       if (!error && response.statusCode == 200) {
         callback();
