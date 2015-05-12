@@ -116,7 +116,10 @@ class ImagesController < ApplicationController
 
   def view
     # @TODO return the requested image if it exists
-    send_file "#{Rails.root}/test/fixtures/test_image.jpg",
+    image = Image.find params[:id]
+    #this needs to be changed to the image.img.url (which needs to be fixed)
+    file = open("http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/image_1.jpg")
+    send_file file,
       :type => 'image/jpg',
       :disposition => 'inline',
       status: 200 # should be 404, but it's not supported by all browsers
