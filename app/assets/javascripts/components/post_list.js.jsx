@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var ImageStore = require('../flux/image_store');
+var LoadingSpinner = require('./loading_spinner');
 var Post = require('./post');
 var StateFromStore = require('react-components/state-from-store-mixin');
 
@@ -16,7 +17,7 @@ var PostList = React.createClass({
   render: function() {
     var images = this.state.images;
     if (_.isEmpty(images)) {
-      return <div>Nothing here!</div>;
+      return <LoadingSpinner />;
     } else {
       var posts = _.map(this.state.images, (image) => {
         return <Post key={image.id} post={image} />;
