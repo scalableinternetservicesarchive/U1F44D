@@ -8,7 +8,7 @@ class Image < ActiveRecord::Base
                     },
                     :url => ":s3_domain_url",
                     :s3_endpoint => 's3-us-west-2.amazonaws.com',
-                    :path => '/:filename',
+                    :path => '/:id',
                     :s3_host_name => 's3-us-west-2.amazonaws.com'
 
   validates_attachment_content_type :img, :content_type => /\Aimage\/.*\Z/
@@ -19,7 +19,7 @@ class Image < ActiveRecord::Base
   def url
     # @TODO use the right URL...
     #this function needs to be changed to return the s3 url
+    return "http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/#{id}"
     # return "/images/view/" + read_attribute(:id).to_s
-    return "/images/view/" + read_attribute(:id).to_s
   end
 end

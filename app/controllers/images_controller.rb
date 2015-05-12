@@ -114,17 +114,6 @@ class ImagesController < ApplicationController
     render status: 200, json: {downvoted: has_downvote}
   end
 
-  def view
-    # @TODO return the requested image if it exists
-    image = Image.find params[:id]
-    #this needs to be changed to the image.img.url (which needs to be fixed)
-    file = open("http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/image_1.jpg")
-    send_file file,
-      :type => 'image/jpg',
-      :disposition => 'inline',
-      status: 200 # should be 404, but it's not supported by all browsers
-  end
-
   def comments
     image = Image.find params[:id]
     comments = image.comments
