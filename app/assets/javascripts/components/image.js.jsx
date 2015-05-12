@@ -1,4 +1,5 @@
 var LoadingSpinner = require('./loading_spinner');
+var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var Image = React.createClass({
   propTypes: {
@@ -35,21 +36,41 @@ var Image = React.createClass({
   },
 
   render() {
+// <<<<<<< HEAD
+//     if (this.props.isAsync) {
+//       if (this.state.loaded) {
+//         return (
+//           <div className="image">
+//             <LoadingSpinner className="spinner-loaded" />
+//             <img src={this.props.src} />
+//           </div>
+//         );
+//       } else {
+//         return (
+//           <div className="image">
+//             <LoadingSpinner className="spinner-loading" />
+//           </div>
+//         );
+//       }
+//     } else {
+//       return (
+//         <div className="image">
+//           <img src={this.props.src} />
+//         </div>
+//       );
+//     }
+// =======
     if (this.props.isAsync) {
-      if (this.state.loaded) {
-        return (
-          <div className="image">
-            <LoadingSpinner className="spinner-loaded" />
-            <img src={this.props.src} />
-          </div>
-        );
-      } else {
-        return (
-          <div className="image">
-            <LoadingSpinner className="spinner-loading" />
-          </div>
-        );
-      }
+      var contents = this.state.loaded ?
+        <img src={this.props.src} key={this.props.src} /> :
+        <LoadingSpinner key="spinner" />;
+      return (
+        <div className="image">
+          <CSSTransitionGroup transitionName="image">
+            {contents}
+          </CSSTransitionGroup>
+        </div>
+      );
     } else {
       return (
         <div className="image">
@@ -57,6 +78,7 @@ var Image = React.createClass({
         </div>
       );
     }
+// >>>>>>> loading animation tweaks
   }
 });
 
