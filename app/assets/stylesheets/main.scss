@@ -126,6 +126,7 @@ $blue: #0091EA;
 $red: #D50000;
 $yellow: #FFAB00;
 $gray:#F8F8F8;
+$deep-gray: #b7b7b7;
 
 @keyframes color {
   100%, 0% {
@@ -191,6 +192,46 @@ $gray:#F8F8F8;
 }
 
 /******** vote ******************/
-.vote a{
-  color: $blue;
+.vote {
+  padding: 2px 5px 11px 5px;
+  margin-bottom: 0;
+  padding-top: 10px;
+
+.up-clicked, .up-unclicked {
+  float: left;
+  font-size: 25px;
+  transform: rotate(-90deg);
+}
+  .up-clicked{
+    color: $blue;
+  }
+  .up-unclicked{
+    color: $deep-gray;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .score {
+    float: left;
+    width: 80%;
+    text-align: center;
+    font-size: x-large;
+    color: $deep-gray;
+  }
+
+  .down-clicked, .down-unclicked {
+    float: right;
+    font-size: 25px;
+    transform: rotate(90deg);
+  }
+
+  .down-clicked {
+    color: $blue;
+  }
+
+  .down-unclicked {
+    color: $deep-gray;
+  }
 }

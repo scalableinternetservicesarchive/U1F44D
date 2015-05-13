@@ -62,7 +62,7 @@ class ImageStore {
   upvote(id) {
     console.log(id);
     var my_image = _.find(this._images, function(obj) { return obj.id == id });
-    console.log(my_image);
+    my_image.upvoted = true;
     API.postUpvote(
       id,
       (success) => {
@@ -72,13 +72,16 @@ class ImageStore {
         console.error('Error upvote');
       }
     );
+      if (this.isDownvoted(id)) {
+        my_image.score++;
+      }
       my_image.score++;
       this._notify();
   }
 
   downvote(id) {
     var my_image = _.find(this._images, function(obj) { return obj.id == id });
-    console.log(my_image);
+    my_image.downvoted = true;
     API.postDownvote(
       id,
       (success) => {
@@ -88,8 +91,19 @@ class ImageStore {
         console.error('Error downvote');
       }
     );
+      if (this.isUpvoted(id)) {
+        my_image.score--;
+      }
       my_image.score--;
       this._notify();
+  }
+
+  isUpvoted(id) {
+    return _.find(this._images, function(obj) { return obj.id == id }).upvoted;
+  }
+
+  isDownvoted(id) {
+    return _.find(this._images, function(obj) { return obj.id == id }).downvoted;
   }
 }
 
