@@ -114,14 +114,6 @@ class ImagesController < ApplicationController
     render status: 200, json: {downvoted: has_downvote}
   end
 
-  def view
-    # @TODO return the requested image if it exists
-    send_file "#{Rails.root}/test/fixtures/test_image.jpg",
-      :type => 'image/jpg',
-      :disposition => 'inline',
-      status: 200 # should be 404, but it's not supported by all browsers
-  end
-
   def comments
     image = Image.find params[:id]
     comments = image.comments
