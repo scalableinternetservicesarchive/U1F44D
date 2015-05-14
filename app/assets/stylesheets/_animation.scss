@@ -48,23 +48,23 @@
   }
 }
 
-// Image transitions
-.image-enter {
-  opacity: 0;
+// Image/notification transitions
+.image-enter, .notification-enter {
+  opacity: 0.01;
   transition: opacity .5s ease-in;
 }
 
-.image-enter.image-enter-active {
+.image-enter.image-enter-active, .notification-enter.notification-enter-active {
   opacity: 1;
 }
 
-.image-leave {
+.image-leave, .notification-leave {
   opacity: 1;
   transition: opacity .5s ease-in;
 }
 
-.image-leave.image-leave-active {
-  opacity: 0;
+.image-leave.image-leave-active, .notification-leave.notification-leave-active {
+  opacity: 0.01;
 }
 
 @keyframes rotate {
