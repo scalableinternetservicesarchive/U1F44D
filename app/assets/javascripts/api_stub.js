@@ -2,24 +2,35 @@
  * Created by kaceyryan on 5/2/15.
  */
 var request = require('request');
-var host = window.location.host;
-var imagesUri = `http://${host}/images`;
 
 class API {
+  _genPath(id, action) {
+    var host = window.location.host;
+    var path = `http://${host}/images`;
+    if (!id) {
+      return path;
+    }
+    path = `${path}/${id}`;
+    if (!action) {
+      return path;
+    }
+    return `${path}/${action}`;
+  }
+
   //get images in JSON object for your location
   getImages(callback, errorCallback) {
     if (!navigator.geolocation) {
       return errorCallback("Geolocation is not supported by this browser.");
     }
 
-    navigator.geolocation.getCurrentPosition(function(position) {
+    navigator.geolocation.getCurrentPosition((position) => {
       request.get({
-        url: imagesUri,
+        url: this._genPath(),
         qs: {
           lat: position.coords.latitude,
           long: position.coords.longitude
         },
-      }, function(error, response, body) {
+      }, (error, response, body) => {
         if (!error && response.statusCode == 200) {
           callback(JSON.parse(body));
         } else if (error) {
@@ -37,9 +48,9 @@ class API {
       return errorCallback("Geolocation is not supported by this browser.");
     }
 
-    navigator.geolocation.getCurrentPosition(function(position) {
+    navigator.geolocation.getCurrentPosition((position) => {
       request.post({
-        url: imagesUri,
+        url: this._genPath(),
         qs: {
           lat: position.coords.latitude,
           long: position.coords.longitude
@@ -47,7 +58,7 @@ class API {
         formData: {
           image: imageUri,
         },
-      }, function(error, response, body) {
+      }, (error, response, body) => {
         if (!error && response.statusCode == 200) {
           callback();
         } else if (error) {
@@ -61,8 +72,8 @@ class API {
 
   //get whether you have upvote the post yet in json object
   getUpvote(id, callback, errorCallback) {
-    var query = `${host}/images/${id}/up`;
-    request.get(query, function(error, response, body) {
+    var path = this._genPath(id, 'up');
+    request.get(path, (error, response, body) => {
       if (!error && response.statusCode == 200) {
         callback(JSON.parse(body));
       } else if (error) {
@@ -75,8 +86,8 @@ class API {
 
   //get whether you have downvoted the post in json
   getDownvote(id, callback, errorCallback) {
-    var query = `${host}/images/${id}/down`;
-    request.get(query, function(error, response, body) {
+    var path = this._genPath(id, 'down');
+    request.get(path, (error, response, body) => {
       if (!error && response.statusCode == 200) {
         callback(JSON.parse(body));
       } else if (error) {
@@ -89,8 +100,8 @@ class API {
 
   //upvote the image with the given id
   postUpvote(id, callback, errorCallback) {
-    var query = `${host}/images/${id}/up`;
-    request.post(query, function(error, response, body) {
+    var path = this._genPath(id, 'up');
+    request.post(path, (error, response, body) => {
       if (!error && response.statusCode == 200) {
         callback();
       } else if (error) {
@@ -103,10 +114,41 @@ class API {
 
   //downvote the image with the given id
   postDownvote(id, callback, errorCallback) {
-    var query = `${host}/images/${id}/down`;
-    request.post(query, function(error, response, body) {
+    var path = this._genPath(id, 'down');
+    request.post(path, (error, response, body) => {
       if (!error && response.statusCode == 200) {
         callback();
+      } else if (error) {
+        errorCallback(`An error occurred: ${error}`);
+      } else {
+        errorCallback("Response returned with bad status");
+      }
+    });
+  }
+
+  getComments(id, callback, errorCallback) {
+    var path = this._genPath(id, 'comments');
+    request.get(path, (error, response, body) => {
+      if (!error && response.statusCode == 200) {
+        callback(JSON.parse(body));
+      } else if (error) {
+        errorCallback(`An error occurred: ${error}`);
+      } else {
+        errorCallback("Response returned with bad status");
+      }
+    });
+  }
+
+  addComment(id, text, callback, errorCallback) {
+    var path = this._genPath(id, 'comments');
+    request.post({
+      url: path,
+      qs: {
+        text: text
+      },
+    }, (error, response, body) => {
+      if (!error && response.statusCode == 200) {
+        callback(JSON.parse(body));
       } else if (error) {
         errorCallback(`An error occurred: ${error}`);
       } else {
