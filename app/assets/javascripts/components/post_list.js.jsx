@@ -14,8 +14,13 @@ var PostList = React.createClass({
   })],
 
   render: function() {
-    var posts = _.map(this.state.images, (image) => {
-      return <Post key={image.id} post={image} />;
+    var posts = _.map(
+      _.sortBy(
+        this.state.images,
+        (image) => image.created_at
+      ).reverse(),
+      (image) => {
+        return <Post key={image.id} post={image} />;
     });
     return (
       <div>
