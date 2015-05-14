@@ -18,8 +18,6 @@
     "flux": "^2.0.3",
     "react": "^0.13.2",
     "react-components": "bradencanderson/react-components",
-    "react-infinite-scroll": "^0.1.5",
-    "react-loadermixin": "^1.0.4",
     "reactify": "^1.1.0",
     "underscore": "^1.8.3"
   },
