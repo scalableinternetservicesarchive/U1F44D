@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var Comment= require('./comment');
 
 var CommentList = React.createClass({
@@ -6,13 +7,10 @@ var CommentList = React.createClass({
   },
 
   render: function() {
-    var commentNodes = this.props.data.map(function (comment) {
-      return (
-        <Comment author={comment.author}>
-          {comment.text}
-        </Comment>
-      );
-    });
+    var commentNodes = _.map(
+      _.sortBy(this.props.data, (comment) => comment.created_at).reverse(),
+      (comment) => <Comment>{comment.text}</Comment>
+    );
     return (
       <div className="comment-list">
         {commentNodes}

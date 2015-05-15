@@ -4,19 +4,15 @@ var Score = require('./score');
 
 var Post = React.createClass({
   propTypes: {
-    post: React.PropTypes.object
+    post: React.PropTypes.object,
+    onClick: React.PropTypes.func,
   },
 
   render: function() {
-      console.log(this.props.post);
     return (
       <div className="post">
         <Card>
-          <Image src={this.props.post.url}/>
-          <p>
-            Lorem ipsum dolor sit amet eiusmod, consectetur
-            adipiscing elit, sed do .
-          </p>
+          <Image src={this.props.post.url} onClick={this.props.onClick}/>
           <Score score={this.props.post.score} id={this.props.post.id}/>
         </Card>
       </div>

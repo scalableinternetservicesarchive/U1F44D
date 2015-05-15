@@ -1,27 +1,48 @@
+var Dispatcher = require('../flux/dispatcher');
 
 var CommentForm = React.createClass({
-  handleSubmit: function(e) {
-    e.preventDefault();
-    var author = this.refs.author.getDOMNode().value.trim();
-    var text = this.refs.text.getDOMNode().value.trim();
-    if (!text || !author) {
+  propTypes: {
+    postID: React.PropTypes.number,
+  },
+
+  getInitialState: function() {
+    return {
+      comment: '',
+    };
+  },
+
+  _changeComment: function(event) {
+    this.setState({
+      comment: event.target.value
+    });
+  },
+
+  _submitComment: function(event) {
+    event.preventDefault();
+    // don't submit empty comments
+    if (!this.state.comment) {
       return;
     }
-    this.props.onCommentSubmit({author: author, text: text});
-    this.refs.author.getDOMNode().value = '';
-    this.refs.text.getDOMNode().value = '';
-    return;
+    Dispatcher.dispatch({
+      actionType: 'add_comment',
+      id: this.props.postID,
+      text: this.state.comment,
+    });
+    this.setState({
+      comment: ''
+    });
   },
 
   render: function() {
     return (
-      <form className="comment-form" onSubmit={this.handleSubmit}>
-        <input type="text" className="new-comment-name"
-               placeholder="Name" ref="author" />
-        <input type="text" className="new-comment-text"
-               placeholder="Write a comment..." ref="text" />
-        <input type="submit" value="Post" />
-      </form>
+      <div>
+        <input
+          type="text"
+          value={this.state.comment}
+          onChange={this._changeComment}
+        />
+        <input type="submit" onClick={this._submitComment} />
+      </div>
     );
   }
 });

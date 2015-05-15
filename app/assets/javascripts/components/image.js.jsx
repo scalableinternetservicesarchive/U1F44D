@@ -5,6 +5,7 @@ var Image = React.createClass({
   propTypes: {
     src: React.PropTypes.string,
     isAsync: React.PropTypes.bool,
+    onClick: React.PropTypes.func,
   },
 
   getDefaultProps: function() {
@@ -48,7 +49,7 @@ var Image = React.createClass({
       <img src={this.props.src} key={this.props.src} /> :
       <LoadingSpinner key="spinner" />;
     return (
-      <div className="image">
+      <div className="image" onClick={this.props.onClick}>
         <CSSTransitionGroup transitionName="image">
           {contents}
         </CSSTransitionGroup>

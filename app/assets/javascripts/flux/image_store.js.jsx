@@ -65,6 +65,10 @@ class ImageStore extends Store {
     return this._images;
   }
 
+  getImage(id) {
+    return _.find(this._images, (image) => image.id === id);
+  }
+
   _postImage(imageUri) {
     API.postImage(imageUri, () => {
       Dispatcher.dispatch('post_image_success');
