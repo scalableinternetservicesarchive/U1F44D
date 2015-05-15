@@ -10,9 +10,9 @@ var Post = React.createClass({
 
   render: function() {
     return (
-      <div className="post" onClick={this.props.onClick} >
+      <div className="post">
         <Card>
-          <Image src={this.props.post.url}/>
+          <Image src={this.props.post.url} onClick={this.props.onClick}/>
           <Score score={this.props.post.score} id={this.props.post.id}/>
         </Card>
       </div>
