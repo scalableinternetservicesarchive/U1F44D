@@ -191,3 +191,48 @@ body {
     width: 60%;
   }
 }
+
+/******** vote ******************/
+.vote {
+  padding: 2px 5px 11px 5px;
+  margin-bottom: 0;
+  padding-top: 10px;
+
+.up-clicked, .up-unclicked {
+  float: left;
+  font-size: 25px;
+  transform: rotate(-90deg);
+}
+  .up-clicked{
+    color: $blue;
+  }
+  .up-unclicked{
+    color: $deep-gray;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .score {
+    float: left;
+    width: 80%;
+    text-align: center;
+    font-size: x-large;
+    color: $deep-gray;
+  }
+
+  .down-clicked, .down-unclicked {
+    float: right;
+    font-size: 25px;
+    transform: rotate(90deg);
+  }
+
+  .down-clicked {
+    color: $blue;
+  }
+
+  .down-unclicked {
+    color: $deep-gray;
+  }
+}

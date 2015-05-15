@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var API = require('../api_stub');
 var Dispatcher = require('./dispatcher');
 var Store = require('./store');
@@ -13,6 +14,14 @@ class ImageStore extends Store {
         case 'refresh_images':
           this._images = Object.create(null);
           this.getImages();
+          break;
+        case 'upvote':
+          var id = payload.id;
+          this.upvote(id);
+          break;
+        case 'downvote':
+          var id = payload.id;
+          this.downvote(id);
           break;
         case 'fetch_images':
           this._fetchImages();
@@ -68,6 +77,49 @@ class ImageStore extends Store {
         message: message,
       });
     })
+  }
+
+  upvote(id) {
+    console.log(id);
+    var my_image = _.find(this._images, function(obj) { return obj.id == id });
+    my_image.upvoted = true;
+    API.postUpvote(
+      id,
+      (success) => {},
+      (error) => {
+        console.error(`Upvote error: ${error}`);
+      }
+    );
+      if (this.isDownvoted(id)) {
+        my_image.score++;
+      }
+      my_image.score++;
+      this._notify();
+  }
+
+  downvote(id) {
+    var my_image = _.find(this._images, function(obj) { return obj.id == id });
+    my_image.downvoted = true;
+    API.postDownvote(
+      id,
+      (success) => {},
+      (error) => {
+        console.error(`Downvote error: ${error}`);
+      }
+    );
+      if (this.isUpvoted(id)) {
+        my_image.score--;
+      }
+      my_image.score--;
+      this._notify();
+  }
+
+  isUpvoted(id) {
+    return _.find(this._images, function(obj) { return obj.id == id }).upvoted;
+  }
+
+  isDownvoted(id) {
+    return _.find(this._images, function(obj) { return obj.id == id }).downvoted;
   }
 }
 
