@@ -12,10 +12,6 @@ var Post = React.createClass({
       <div className="post" onClick={this.props.onClick} >
         <Card>
           <Image src={this.props.post.url}/>
-          <p>
-            Lorem ipsum dolor sit amet eiusmod, consectetur
-            adipiscing elit, sed do .
-          </p>
         </Card>
       </div>
     );
