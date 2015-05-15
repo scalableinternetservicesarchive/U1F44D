@@ -3,6 +3,7 @@ var Dispatcher = require('./dispatcher');
 var Store = require('./store');
 
 const VIEWS = {
+  COMMENTS: 'COMMENTS',
   POSTS: 'POSTS',
   SUBMIT: 'SUBMIT',
 };
@@ -13,6 +14,7 @@ class ViewStore extends Store {
   constructor() {
     super();
     this._view = VIEWS.POSTS;
+    this._postID = 1;
     this._isLoading = false;
     this._notifications = [];
 
@@ -21,6 +23,7 @@ class ViewStore extends Store {
         case 'change_view':
           if (payload.view in VIEWS) {
             this._view = payload.view;
+            this._postID = payload.postID;
             this._notify();
           } else {
             throw new Error(`Cannot set view to ${payload.view}`);
@@ -48,6 +51,10 @@ class ViewStore extends Store {
 
   getView() {
     return this._view;
+  }
+
+  getPostID() {
+    return this._postID;
   }
 
   getNotifications() {

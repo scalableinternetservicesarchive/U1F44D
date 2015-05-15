@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var API = require('../api_stub');
 var Dispatcher = require('./dispatcher');
 var Store = require('./store');
@@ -54,6 +55,10 @@ class ImageStore extends Store {
       Dispatcher.dispatch('fetch_images');
     }
     return this._images;
+  }
+
+  getImage(id) {
+    return _.find(this._images, (image) => image.id === id);
   }
 
   _postImage(imageUri) {

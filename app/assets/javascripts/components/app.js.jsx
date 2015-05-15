@@ -1,4 +1,5 @@
 var AppMain = require('./app_main');
+var CommentsView = require('./comments_view');
 var TopAppBar = require('./top_app_bar');
 var PostList = require('./post_list');
 var PostSubmit = require('./post_submit');
@@ -12,17 +13,29 @@ var App = React.createClass({
       fetch: function(store) {
         return store.getView();
       }
+    },
+    commentsPostID: {
+      store: ViewStore,
+      fetch: function(store) {
+        return store.getPostID();
+      }
     }
   })],
 
   render: function() {
     var contents;
-    if (this.state.view === ViewStore.VIEWS.POSTS) {
-      contents = <PostList />;
-    } else if (this.state.view === ViewStore.VIEWS.SUBMIT) {
-      contents = <PostSubmit />;
-    } else {
-      throw new Error(`Unsupported view ${this.state.view}`);
+    switch (this.state.view) {
+      case ViewStore.VIEWS.POSTS:
+        contents = <PostList />;
+        break;
+      case ViewStore.VIEWS.SUBMIT:
+        contents = <PostSubmit />;
+        break;
+      case ViewStore.VIEWS.COMMENTS:
+        contents = <CommentsView postID={this.state.commentsPostID} />;
+        break;
+      default:
+        throw new Error(`Unsupported view ${this.state.view}`);
     }
 
     return (
