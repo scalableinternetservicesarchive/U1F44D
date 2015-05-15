@@ -3,59 +3,60 @@
  */
 var request = require('request');
 var host = window.location.host;
+var imagesUri = `http://${host}/images`;
+
 class API {
   //get images in JSON object for your location
   getImages(callback, errorCallback) {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        request.get({
-          url: `http://${host}/images`,
-          qs: {
-            lat: position.coords.latitude,
-            long: position.coords.longitude
-          },
-        }, function(error, response, body) {
-          if (!error && response.statusCode == 200) {
-            callback(JSON.parse(body));
-          } else if (error) {
-            errorCallback(`An error occurred: ${error}`);
-          } else {
-            errorCallback("Response returned with bad status");
-          }
-        });
-      }, this.handleGeolocationError);
-    } else {
-      //Handle error
-      errorCallback("Geolocation is not supported by this browser.");
+    if (!navigator.geolocation) {
+      return errorCallback("Geolocation is not supported by this browser.");
     }
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+      request.get({
+        url: imagesUri,
+        qs: {
+          lat: position.coords.latitude,
+          long: position.coords.longitude
+        },
+      }, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+          callback(JSON.parse(body));
+        } else if (error) {
+          errorCallback(`An error occurred: ${error}`);
+        } else {
+          errorCallback("Response returned with bad status");
+        }
+      });
+    }, this.handleGeolocationError);
   }
 
   //post an image for your provided location
-  postImage(image, callback, errorCallback) {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        request.post({
-          url: `${host}/images`,
-          qs: {
-            lat: position.coords.latitude,
-            long: position.coords.longitude
-          },
-          //TODO: Transfer Image Correctly
-          body: image
-        }, function(error, response, body) {
-          if (!error && response.statusCode == 200) {
-            callback();
-          } else if (error) {
-            errorCallback(`An error occurred: ${error}`);
-          } else {
-            errorCallback("Response returned with bad status");
-          }
-        });
-      }, this.showError);
-    } else {
-      //Handle error
-      errorCallback("Geolocation is not supported by this browser.");
+  postImage(imageUri, callback, errorCallback) {
+    if (!navigator.geolocation) {
+      return errorCallback("Geolocation is not supported by this browser.");
     }
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+      request.post({
+        url: imagesUri,
+        qs: {
+          lat: position.coords.latitude,
+          long: position.coords.longitude
+        },
+        formData: {
+          image: imageUri,
+        },
+      }, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+          callback();
+        } else if (error) {
+          errorCallback(`An error occurred: ${error}`);
+        } else {
+          errorCallback("Response returned with bad status");
+        }
+      });
+    }, this.showError);
   }
 
   //get whether you have upvote the post yet in json object

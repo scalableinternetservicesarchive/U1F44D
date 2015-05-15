@@ -33,6 +33,9 @@ gem 'protected_attributes'
 # Image upload
 gem 'paperclip'
 
+# Amazon Web Services sdk
+gem 'aws-sdk' #, '< 2.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

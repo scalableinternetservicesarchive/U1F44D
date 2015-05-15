@@ -3,13 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import 'global';
-
-$list-width: 300px;
-$navbar-height: 50px;
-$spinner-width: 100px;
+@import 'animation';
 
 body {
-  background-color: rgb(225,225,225);
+  background-color: $background-color;
   font-family: sans-serif;
 }
 
@@ -25,12 +22,18 @@ body {
     height: $navbar-height;
     line-height: $navbar-height;
     z-index: 9999;
-    background-color: #2196F3;
-    padding: 10px;
-    padding-left: 20px;
+    background-color: $appbar-color;
+    padding: 10px 20px;
     @include box-shadow(0px, 0px, 15px, gray);
     .nav-title {
       font-size: 25px;
+    }
+    .nav-links {
+      float: right;
+      a {
+        margin-left: 15px;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -52,8 +55,9 @@ body {
   width: 100%;
   height: 100%;
   background-color: white;
-  padding: 10px;
+  margin-left: -10px;
   overflow: hidden;
+  padding: 10px;
   animation: fadein 0.3s;
   @include box-shadow(0px, 0px, 7px, gray);
   @include border-radius(5px);
@@ -66,15 +70,65 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   img {
-    max-width: 100%;
-    max-height: 100%;
-    animation: fadein 3s;
+    max-width: $list-width;
+    max-height: $list-width;
+  }
+  .spinner {
+    position: absolute;
+    left: $list-width/2 - $spinner-width/2;
+    top: $list-width/2 - $spinner-width/2;
   }
 }
 
-.center-spinner {
-  text-align: center;
+.image-submit-form {
+  width: $list-width;
+  height: $list-width;
+  position: absolute;
+  top: 0;
+  left: 0;
+  label {
+    line-height: $list-width;
+    text-align: center;
+    display: inherit;
+    font-size: 25px;
+  }
+  input {
+    opacity: 0;
+  }
+  input, .fake-input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 75px;
+    height: 75px;
+  }
+  .fake-input {
+    text-align:center;
+    font: 4em "Open Sans", sans-serify;
+    line-height: 75px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+  }
+  button {
+    display: block;
+    height: 3rem;
+    line-height: 3rem;
+    color: white;
+    background-color: $appbar-color;
+    cursor: pointer;
+    padding: 0 4rem;
+    @include border-radius(3px);
+    border: none;
+    @include box-shadow(0px, 0px, 7px, gray);
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 1rem;
+    left: $list-width/2 - 176px/2px;
+    animation: fadein 0.5s;
+    width: 176px;
+  }
 }
 
 .spinner {
@@ -82,6 +136,7 @@ body {
   display: block;
   height: $spinner-width;
   width: $spinner-width;
+  margin: auto;
   circle {
     animation:
       dash 1.5s ease-in-out infinite,
@@ -89,75 +144,21 @@ body {
   }
 }
 
-.spinner-loading {
-  position: relative;
-}
-
-.spinner-loaded {
-  position: absolute;
-  margin-left: $list-width/2 - $spinner-width/2;
-  margin-top: $list-width/2 - $spinner-width/2;
-  animation: fadeout 4s forwards;
-}
-
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 75, 200;
-    stroke-dashoffset: -30;
-  }
-  100% {
-    stroke-dasharray: 100, 200;
-    stroke-dashoffset: -120;
-  }
-}
-
-$green: #00C853;
-$blue: #0091EA;
-$red: #D50000;
-$yellow: #FFAB00;
-$gray:#F8F8F8;
-$deep-gray: #b7b7b7;
-
-@keyframes color {
-  100%, 0% {
-    stroke: $red;
-  }
-  40% {
-    stroke: $blue;
-  }
-  66% {
-    stroke: $green;
-  }
-  80%, 90% {
-    stroke: $yellow;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
+.message-box {
+  position:absolute;
+  width: 80%;
+  left: 10%;
+  top: $navbar-height + 3*10px;
+  z-index: 99;
+  .notification {
+    background-color: $red;
+    margin: auto;
+    display: table;
+    line-height: 1.5em;
+    padding: 0 3em;
+    @include border-radius(3px);
+    border: none;
+    @include box-shadow(0px, 0px, 3px, gray);
   }
 }
 

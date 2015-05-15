@@ -1,11 +1,13 @@
+var _ = require('underscore');
 var API = require('../api_stub');
 var Dispatcher = require('./dispatcher');
-var _ = require('underscore');
+var Store = require('./store');
 
-class ImageStore {
+class ImageStore extends Store {
   constructor() {
+    super();
     this._images = Object.create(null);
-    this._listeners = [];
+    this._fetching = false;
 
     Dispatcher.register((payload) => {
       switch (payload.actionType) {
@@ -21,42 +23,60 @@ class ImageStore {
           var id = payload.id;
           this.downvote(id);
           break;
+        case 'fetch_images':
+          this._fetchImages();
+          break;
+        case 'post_image':
+          this._postImage(payload.imageUri);
+          break;
       }
     });
   }
 
   _fetchImages() {
+    if (this._fetching) {
+      return;
+    }
+    this._fetching = true;
     API.getImages(
       (images) => {
+        this._fetching = false;
         this._images = images;
+        Dispatcher.dispatch('fetch_images_success');
+
         this._notify();
       },
       (error) => {
-        console.error(`Error getting images: ${error}`);
+        this._fetching = false;
+        var message = `Error getting images: ${error}`;
+        Dispatcher.dispatch({
+          actionType: 'fetch_images_fail',
+          message: message,
+        });
       }
     );
   }
 
   getImages() {
+    // TODO: improve fetch logic
     if (Object.keys(this._images).length === 0) {
-      this._fetchImages();
+      Dispatcher.dispatch('fetch_images');
     }
     return this._images;
   }
 
-  _notify() {
-    this._listeners.forEach((callback) => callback());
-  }
-
-  addChangeListener(callback) {
-    this._listeners.unshift(callback);
-  }
-
-  removeChangeListener(key) {
-    var index = this._listeners.indexOf(key);
-    if (index > -1) {
-      this._listeners.splice(index, 1);
-    }
+  _postImage(imageUri) {
+    API.postImage(imageUri, () => {
+      Dispatcher.dispatch('post_image_success');
+      setTimeout(2000, () => Dispatcher.dispatch('fetch_images'));
+    },
+    (error) => {
+      var message = `Error posting image: ${error}`;
+      Dispatcher.dispatch({
+        actionType: 'post_image_fail',
+        message: message,
+      });
+    })
   }
 
   upvote(id) {
@@ -65,11 +85,9 @@ class ImageStore {
     my_image.upvoted = true;
     API.postUpvote(
       id,
-      (success) => {
-        console.log("success");
-      },
+      (success) => {},
       (error) => {
-        console.error('Error upvote');
+        console.error(`Upvote error: ${error}`);
       }
     );
       if (this.isDownvoted(id)) {
@@ -84,11 +102,9 @@ class ImageStore {
     my_image.downvoted = true;
     API.postDownvote(
       id,
-      (success) => {
-        console.log("success");
-      },
+      (success) => {},
       (error) => {
-        console.error('Error downvote');
+        console.error(`Downvote error: ${error}`);
       }
     );
       if (this.isUpvoted(id)) {

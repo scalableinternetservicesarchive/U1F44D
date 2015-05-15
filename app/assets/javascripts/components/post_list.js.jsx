@@ -14,19 +14,19 @@ var PostList = React.createClass({
   })],
 
   render: function() {
-    var images = this.state.images;
-    if (_.isEmpty(images)) {
-      return <div>Nothing here!</div>;
-    } else {
-      var posts = _.map(this.state.images, (image) => {
+    var posts = _.map(
+      _.sortBy(
+        this.state.images,
+        (image) => image.created_at
+      ).reverse(),
+      (image) => {
         return <Post key={image.id} post={image} />;
-      });
-      return (
-        <div>
-          {posts}
-        </div>
-      );
-    };
+    });
+    return (
+      <div>
+        {posts}
+      </div>
+    );
   }
 });
 
