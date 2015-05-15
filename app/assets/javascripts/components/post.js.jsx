@@ -1,5 +1,6 @@
 var Card = require('./card');
 var Image = require('./image');
+var Score = require('./score');
 
 var Post = React.createClass({
   propTypes: {
@@ -12,6 +13,7 @@ var Post = React.createClass({
       <div className="post" onClick={this.props.onClick} >
         <Card>
           <Image src={this.props.post.url}/>
+          <Score score={this.props.post.score} id={this.props.post.id}/>
         </Card>
       </div>
     );

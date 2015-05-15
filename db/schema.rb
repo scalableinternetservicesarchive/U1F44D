@@ -37,13 +37,6 @@ ActiveRecord::Schema.define(version: 20150509223803) do
     t.datetime "img_updated_at"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "image_url",  limit: 255
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "sid",        limit: 255,             null: false
     t.integer  "karma",      limit: 4,   default: 0, null: false
