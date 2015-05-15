@@ -11,7 +11,6 @@ var Comments = React.createClass({
     data: {
       store: CommentStore,
       getFetchParams: function(props) {
-        // console.log(props)
         return {id: props.postID};
       },
       fetch: function(store, fetchParams) {
@@ -41,7 +40,6 @@ var CommentsView = React.createClass({
     post: {
       store: ImageStore,
       getFetchParams: function(props) {
-        // console.log(props)
         return {id: props.postID};
       },
       fetch: function(store, fetchParams) {

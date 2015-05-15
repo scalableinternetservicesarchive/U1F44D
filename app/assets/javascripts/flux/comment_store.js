@@ -21,7 +21,7 @@ class CommentStore extends Store {
 
   _addComment(id, text) {
     API.addComment(id, text, (response) => {
-      this._comments.push(response);
+      this._comments[id] = response;
       this._notify();
       this._fetchComments(id);
     }, (error) => {

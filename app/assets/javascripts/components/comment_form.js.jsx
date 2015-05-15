@@ -28,12 +28,19 @@ var CommentForm = React.createClass({
       id: this.props.postID,
       text: this.state.comment,
     });
+    this.setState({
+      comment: ''
+    });
   },
 
   render: function() {
     return (
       <div>
-        <textarea value={this.state.comment} onChange={this._changeComment} />
+        <input
+          type="text"
+          value={this.state.comment}
+          onChange={this._changeComment}
+        />
         <input type="submit" onClick={this._submitComment} />
       </div>
     );
