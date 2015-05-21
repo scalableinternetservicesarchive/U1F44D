@@ -60,14 +60,53 @@
   <sessions>
     <session name="http-example" probability="100" type="ts_http">
 
-      <!-- start out at the dashboard. -->
+      <!-- start out at the main page. -->
       <request>
         <http url='/' version='1.1' method='GET'></http>
       </request>
 
+      <!-- Get list of images. -->
+      <!-- TODO : add variety of locations -->
+      <request>
+        <http url="/images?lat=34.0666125&amp;long=-118.44810189999998"
+              method="GET" version="1.1"></http>
+      </request>
+
+      <!-- download all the images. -->
+      <!-- TODO : download images from a variety of locations -->
+      <request>
+        <http url='http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/5'
+              version='1.1' method='GET'>
+        </http>
+      </request>
+      <request>
+        <http url='http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/4'
+              version='1.1' method='GET'>
+        </http>
+      </request>
+      <request>
+        <http url='http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/3'
+              version='1.1' method='GET'>
+        </http>
+      </request>
+      <request>
+        <http url='http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/2'
+              version='1.1' method='GET'>
+        </http>
+      </request>
+      <request>
+        <http url='http://s3-us-west-2.amazonaws.com/scalableinternetservices/U1F44D/1'
+              version='1.1' method='GET'>
+        </http>
+      </request>
+
       <!-- wait for up to 2 seconds, user is looking at posts -->
       <thinktime value="2" random="true"></thinktime>
+      
 
-			<!-- ADD A LOT MORE REQUESTS HERE -->
+
+      <!-- upload an image -->
+      <!-- TODO : How do we do this? -->
+    </session>
   </sessions>
 </tsung>
