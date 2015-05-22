@@ -19,5 +19,8 @@
 # Ignore uploaded files
 public/system/images
 
+
 # Ignore environment variables
 /config/local_env.yml
+
+.DS_Store
