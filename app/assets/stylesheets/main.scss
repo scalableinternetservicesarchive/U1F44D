@@ -240,3 +240,17 @@ body {
     color: $deep-gray;
   }
 }
+
+/**
+ * Styling for smaller devices
+ */
+@media (max-width: 500px) {
+    .post {
+        width: 95%;
+    }
+
+    .image {
+        width: 85%;
+        margin: 0 auto;
+    }
+}
