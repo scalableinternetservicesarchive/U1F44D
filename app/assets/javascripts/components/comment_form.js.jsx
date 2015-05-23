@@ -41,7 +41,7 @@ var CommentForm = React.createClass({
           value={this.state.comment}
           onChange={this._changeComment}
         />
-        <input type="submit" onClick={this._submitComment} />
+        <input type="submit" onClick={this._submitComment} value="Comment" />
       </div>
     );
   }
