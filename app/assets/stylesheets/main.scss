@@ -166,7 +166,7 @@ body {
 .comment-list {
   overflow: auto;
   max-height: 250px;
-  font-size: 12px;
+  font-size: 14px;
   padding-left: 5px;
   .comment {
     margin-top: 10px;
@@ -176,17 +176,32 @@ body {
       color: $blue;
       margin-right: 10px;
     }
+
+    border-bottom: 1px solid lighten( gray, 25% );
   }
 }
 
 .comment-form {
-  margin-top: 10px;
-  padding-left: 2px;
-  .new-comment-name {
-    width: 20%;
+  textarea {
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: sans-serif;
   }
-  .new-comment-text {
-    width: 60%;
+  
+  input[type="submit"] {
+    margin: 0 auto;
+    display: block;
+    font-size: 14px;
+    background-color: $appbar-color;
+    color: #fff;
+    border: none;
+    font-family: sans-serif;
+    font-weight: 200;
+    margin-top: 5px;
+    width: 55%;
+    padding: 5px 10px;
   }
 }
 
@@ -239,4 +254,18 @@ body {
   .down-unclicked {
     color: $deep-gray;
   }
+}
+
+/**
+ * Styling for smaller devices
+ */
+@media (max-width: 500px) {
+    .post {
+        width: 95%;
+    }
+
+    .image, .comments-card {
+        width: 85%;
+        margin: 0 auto;
+    }
 }

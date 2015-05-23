@@ -35,13 +35,13 @@ var CommentForm = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <input
-          type="text"
-          value={this.state.comment}
+      <div className="comment-form">
+        <textarea
+          rows="2"
+          cols="30"
           onChange={this._changeComment}
-        />
-        <input type="submit" onClick={this._submitComment} />
+        >{this.state.comment}</textarea>
+        <input type="submit" onClick={this._submitComment} value="Comment" />
       </div>
     );
   }
