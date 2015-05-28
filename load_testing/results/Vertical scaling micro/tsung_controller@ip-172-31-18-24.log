@@ -1,0 +1,873 @@
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(5:<0.39.0>) Config server started, logdir is "/home/ec2-user/.tsung/log/20150528-2109"
+ 
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+              ts_mon:(5:<0.38.0>) starting monitor, global 
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+           ts_config:(5:<0.39.0>) Reading config file: critical.xml
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+           ts_config:(4:<0.39.0>) Unknown option "glocal_ack_timeout" !
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+      ts_config_http:(4:<0.39.0>) Get user agent: 100 "Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511 Firefox/1.0.4" 
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+           ts_config:(5:<0.39.0>) Session name for id 1 is "http-example"
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(4:<0.39.0>) SYSINFO:Tsung version: 1.5.0
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(4:<0.39.0>) SYSINFO:Erlang version: Erlang R16B03-1 (erts-5.10.4) [source] [64-bit] [async-threads:16] [hipe] [kernel-poll:true]
+
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(4:<0.39.0>) SYSINFO:System architecture x86_64-unknown-linux-gnu
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(4:<0.39.0>) SYSINFO:Current path: /home/ec2-user/opt/tsung-1.5.0/lib/erlang/lib/tsung-1.5.0/ebin/tsung.beam
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+           ts_os_mon:(5:<0.36.0>) os_mon disabled
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+              ts_mon:(5:<0.40.0>) Activate clients with text backend
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+              ts_mon:(5:<0.40.0>) Starting tsung clients on hosts: [localhost]
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(5:<0.39.0>) Start a launcher on the controller beam localhost
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+  ts_launcher_static:(5:<0.73.0>) Launch msg receive ("localhost")
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+         ts_launcher:(5:<0.74.0>) Launch msg receive ("localhost")
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(5:<0.39.0>) All remote beams started, syncing 
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(5:<0.39.0>) New arrival phase 1 for client "localhost" (last ? true): will start 30 users
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(5:<0.39.0>) New arrival phase 2 for client "localhost" (last ? true): will start 60 users
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(5:<0.39.0>) New arrival phase 3 for client "localhost" (last ? true): will start 120 users
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+    ts_config_server:(5:<0.39.0>) New arrival phase 4 for client "localhost" (last ? true): will start 240 users
+
+=INFO REPORT==== 28-May-2015::21:09:26 ===
+         ts_launcher:(5:<0.74.0>) Expected duration of first phase: 30.0 sec (30 users) 
+
+=INFO REPORT==== 28-May-2015::21:09:27 ===
+         ts_launcher:(5:<0.74.0>) Activate launcher (30 users) in 10061 msec 
+
+=INFO REPORT==== 28-May-2015::21:10:05 ===
+         ts_launcher:(4:<0.74.0>) Need to wait 2.388 sec before changing phase, going to sleep
+
+=INFO REPORT==== 28-May-2015::21:10:07 ===
+         ts_launcher:(5:<0.74.0>) Waking up
+
+=INFO REPORT==== 28-May-2015::21:10:07 ===
+         ts_launcher:(5:<0.74.0>) Start a new arrival phase (60 users, 0.002); expected duration=30.0 sec
+
+=INFO REPORT==== 28-May-2015::21:10:37 ===
+         ts_launcher:(5:<0.74.0>) Phase duration exceeded, but not all users were launched (3 users, 5.0% of phase)
+
+=INFO REPORT==== 28-May-2015::21:10:37 ===
+         ts_launcher:(5:<0.74.0>) Start a new arrival phase (120 users, 0.004); expected duration=30.0 sec
+
+=INFO REPORT==== 28-May-2015::21:11:07 ===
+         ts_launcher:(5:<0.74.0>) Phase duration exceeded, but not all users were launched (7 users, 5.8% of phase)
+
+=INFO REPORT==== 28-May-2015::21:11:07 ===
+         ts_launcher:(5:<0.74.0>) Start a new arrival phase (240 users, 0.008); expected duration=30.0 sec
+
+=INFO REPORT==== 28-May-2015::21:11:10 ===
+           ts_client:(4:<0.176.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:10 ===
+           ts_client:(5:<0.176.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:13 ===
+           ts_client:(4:<0.205.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:13 ===
+           ts_client:(5:<0.205.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:17 ===
+           ts_client:(4:<0.303.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:17 ===
+           ts_client:(5:<0.303.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:17 ===
+           ts_client:(4:<0.234.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:17 ===
+           ts_client:(5:<0.234.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:19 ===
+           ts_client:(4:<0.297.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:19 ===
+           ts_client:(5:<0.297.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:19 ===
+           ts_client:(4:<0.188.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:19 ===
+           ts_client:(5:<0.188.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:19 ===
+           ts_client:(4:<0.215.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:19 ===
+           ts_client:(5:<0.215.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(4:<0.359.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(5:<0.359.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(4:<0.204.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(5:<0.204.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(4:<0.209.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(5:<0.209.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(4:<0.233.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(5:<0.233.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(4:<0.235.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(5:<0.235.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(4:<0.324.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:20 ===
+           ts_client:(5:<0.324.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:21 ===
+           ts_client:(4:<0.198.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:21 ===
+           ts_client:(5:<0.198.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:21 ===
+           ts_client:(4:<0.212.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:21 ===
+           ts_client:(5:<0.212.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:21 ===
+           ts_client:(4:<0.327.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:21 ===
+           ts_client:(5:<0.327.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(4:<0.288.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(5:<0.288.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(4:<0.375.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(5:<0.375.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(4:<0.245.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(5:<0.245.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(4:<0.277.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(5:<0.277.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(4:<0.255.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:22 ===
+           ts_client:(5:<0.255.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(4:<0.355.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(5:<0.355.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(4:<0.195.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(5:<0.195.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(4:<0.313.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(5:<0.313.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(4:<0.213.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(5:<0.213.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(4:<0.298.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(5:<0.298.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(4:<0.300.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(5:<0.300.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(4:<0.292.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:23 ===
+           ts_client:(5:<0.292.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(4:<0.254.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(5:<0.254.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(4:<0.241.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(5:<0.241.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(4:<0.347.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(5:<0.347.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(4:<0.247.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(5:<0.247.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(4:<0.291.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(5:<0.291.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(4:<0.227.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(5:<0.227.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(4:<0.389.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(5:<0.389.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(4:<0.265.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:24 ===
+           ts_client:(5:<0.265.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:25 ===
+           ts_client:(4:<0.309.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:25 ===
+           ts_client:(5:<0.309.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:25 ===
+           ts_client:(4:<0.363.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:25 ===
+           ts_client:(5:<0.363.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:25 ===
+           ts_client:(4:<0.331.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:25 ===
+           ts_client:(5:<0.331.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:25 ===
+           ts_client:(4:<0.276.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:25 ===
+           ts_client:(5:<0.276.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:26 ===
+           ts_client:(4:<0.257.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:26 ===
+           ts_client:(5:<0.257.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:26 ===
+           ts_client:(4:<0.308.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:26 ===
+           ts_client:(5:<0.308.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(4:<0.244.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(5:<0.244.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(4:<0.192.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(5:<0.192.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(4:<0.278.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(5:<0.278.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(4:<0.249.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(5:<0.249.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(4:<0.445.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:27 ===
+           ts_client:(5:<0.445.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.387.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.387.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.197.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.197.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.403.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.403.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.294.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.294.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.311.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.311.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.404.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.404.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.464.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.464.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.406.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.406.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.396.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.396.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(4:<0.236.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:28 ===
+           ts_client:(5:<0.236.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.360.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.360.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.454.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.454.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.219.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.219.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.380.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.380.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.322.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.322.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.269.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.269.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.431.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.431.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.222.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.222.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(4:<0.220.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:29 ===
+           ts_client:(5:<0.220.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:30 ===
+           ts_client:(4:<0.272.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:30 ===
+           ts_client:(5:<0.272.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:30 ===
+           ts_client:(4:<0.409.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:30 ===
+           ts_client:(5:<0.409.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:30 ===
+           ts_client:(4:<0.206.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:30 ===
+           ts_client:(5:<0.206.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:33 ===
+           ts_client:(4:<0.271.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:33 ===
+           ts_client:(5:<0.271.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:34 ===
+         ts_launcher:(5:<0.74.0>) This was the last phase, wait for connected users to finish their session
+
+=INFO REPORT==== 28-May-2015::21:11:34 ===
+     ts_launcher_mgr:(5:<0.69.0>) Still 227 active client(s)
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(4:<0.270.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(5:<0.270.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(4:<0.368.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(5:<0.368.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(4:<0.390.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(5:<0.390.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(4:<0.240.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(5:<0.240.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(4:<0.246.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:35 ===
+           ts_client:(5:<0.246.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.443.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.443.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.352.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.352.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.305.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.305.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.335.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.335.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.214.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.214.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.318.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.318.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.419.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.419.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.263.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.263.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.337.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.337.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.354.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.354.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.325.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.325.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.418.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.418.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(4:<0.361.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:36 ===
+           ts_client:(5:<0.361.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:38 ===
+           ts_client:(4:<0.207.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:38 ===
+           ts_client:(5:<0.207.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:38 ===
+           ts_client:(4:<0.398.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:38 ===
+           ts_client:(5:<0.398.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:38 ===
+           ts_client:(4:<0.251.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:38 ===
+           ts_client:(5:<0.251.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:38 ===
+           ts_client:(4:<0.370.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:38 ===
+           ts_client:(5:<0.370.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:39 ===
+           ts_client:(4:<0.388.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:39 ===
+           ts_client:(5:<0.388.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:39 ===
+           ts_client:(4:<0.281.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:39 ===
+           ts_client:(5:<0.281.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:39 ===
+           ts_client:(4:<0.290.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:39 ===
+           ts_client:(5:<0.290.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:39 ===
+           ts_client:(4:<0.367.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:39 ===
+           ts_client:(5:<0.367.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:40 ===
+           ts_client:(4:<0.237.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:40 ===
+           ts_client:(5:<0.237.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:40 ===
+           ts_client:(4:<0.238.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:40 ===
+           ts_client:(5:<0.238.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:41 ===
+           ts_client:(4:<0.394.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:41 ===
+           ts_client:(5:<0.394.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:41 ===
+           ts_client:(4:<0.484.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:41 ===
+           ts_client:(5:<0.484.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:42 ===
+           ts_client:(4:<0.457.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:42 ===
+           ts_client:(5:<0.457.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(4:<0.369.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(5:<0.369.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(4:<0.289.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(5:<0.289.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(4:<0.416.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(5:<0.416.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(4:<0.446.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(5:<0.446.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(4:<0.479.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:43 ===
+           ts_client:(5:<0.479.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(4:<0.400.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(5:<0.400.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(4:<0.425.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(5:<0.425.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(4:<0.495.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(5:<0.495.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(4:<0.491.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(5:<0.491.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(4:<0.349.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(5:<0.349.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(4:<0.232.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:44 ===
+           ts_client:(5:<0.232.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(4:<0.450.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(5:<0.450.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(4:<0.258.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(5:<0.258.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(4:<0.321.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(5:<0.321.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(4:<0.399.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(5:<0.399.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(4:<0.228.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:45 ===
+           ts_client:(5:<0.228.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:46 ===
+           ts_client:(4:<0.463.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:46 ===
+           ts_client:(5:<0.463.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:46 ===
+           ts_client:(4:<0.455.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:46 ===
+           ts_client:(5:<0.455.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:47 ===
+           ts_client:(4:<0.427.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:47 ===
+           ts_client:(5:<0.427.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:47 ===
+           ts_client:(4:<0.332.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:47 ===
+           ts_client:(5:<0.332.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:47 ===
+           ts_client:(4:<0.346.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:47 ===
+           ts_client:(5:<0.346.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:50 ===
+           ts_client:(4:<0.528.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:50 ===
+           ts_client:(5:<0.528.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:50 ===
+           ts_client:(4:<0.475.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:50 ===
+           ts_client:(5:<0.475.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:51 ===
+           ts_client:(4:<0.440.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:51 ===
+           ts_client:(5:<0.440.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:51 ===
+           ts_client:(4:<0.469.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:51 ===
+           ts_client:(5:<0.469.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:52 ===
+           ts_client:(4:<0.514.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:52 ===
+           ts_client:(5:<0.514.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:11:52 ===
+           ts_client:(4:<0.377.0>) connection close while sending message !
+
+=INFO REPORT==== 28-May-2015::21:11:52 ===
+           ts_client:(5:<0.377.0>) Server must have closed connection upon us, waiting 10 msec
+
+=INFO REPORT==== 28-May-2015::21:12:34 ===
+     ts_launcher_mgr:(5:<0.69.0>) Still 54 active client(s)
+
+=INFO REPORT==== 28-May-2015::21:13:34 ===
+     ts_launcher_mgr:(5:<0.69.0>) No more active users 'tsung_controller@ip-172-31-18-24' "2065"
+
+=INFO REPORT==== 28-May-2015::21:13:34 ===
+              ts_mon:(5:<0.40.0>) stopping monitor (normal)
