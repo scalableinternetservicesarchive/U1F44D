@@ -83,8 +83,8 @@
           <http url='/images/1/up' version='1.1' method='POST'>
           </http>
         </request>
-        <thinktime value="1" random="true"></thinktime>
       </transaction>
+      <thinktime value="1" random="true"></thinktime>
       <request>
         <http url='/images/2/down' version='1.1' method='POST'>
         </http>
@@ -137,6 +137,7 @@
         <var name="random_submission_name" />
       </setdynvars>
 
+      <transaction name="upload_image">
       <request subst="true">
         <http
                 url='/images?lat=34.0666&amp;long=-118.448'
@@ -147,6 +148,7 @@
 '>
         </http>
       </request>
+      </transaction>
 
       <!-- reload list of images -->
       <request>
