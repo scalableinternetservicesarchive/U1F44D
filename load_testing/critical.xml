@@ -26,10 +26,10 @@
    <arrivalphase phase="4" duration="30" unit="second">
      <users arrivalrate="8" unit="second"></users>
    </arrivalphase>
+<!--
    <arrivalphase phase="5" duration="30" unit="second">
      <users arrivalrate="16" unit="second"></users>
    </arrivalphase>
-<!--
    <arrivalphase phase="6" duration="30" unit="second">
      <users arrivalrate="32" unit="second"></users>
    </arrivalphase>
@@ -67,20 +67,24 @@
 
       <!-- Get list of images. -->
       <!-- TODO : add variety of locations -->
-      <request>
-        <http url="/images?lat=34.0666&amp;long=-118.448"
-              method="GET" version="1.1"></http>
-      </request>
+      <transaction name="get_image_list_1">
+        <request>
+          <http url="/images?lat=34.0666&amp;long=-118.448"
+                method="GET" version="1.1"></http>
+        </request>
+      </transaction>
 
       <!-- wait for up to 2 seconds, user is looking at posts -->
       <thinktime value="2" random="true"></thinktime>
 
       <!-- up/downvote images -->
-      <request>
-        <http url='/images/1/up' version='1.1' method='POST'>
-        </http>
-      </request>
-      <thinktime value="1" random="true"></thinktime>
+      <transaction name="upvote_image_1">
+        <request>
+          <http url='/images/1/up' version='1.1' method='POST'>
+          </http>
+        </request>
+        <thinktime value="1" random="true"></thinktime>
+      </transaction>
       <request>
         <http url='/images/2/down' version='1.1' method='POST'>
         </http>
@@ -94,15 +98,23 @@
         <http url='/images/4/up' version='1.1' method='POST'>
         </http>
       </request>
+
+      <!-- get comments on an image -->
+      <transaction name="get_comments_image_4">
+        <request>
+          <http url='/images/4/comments' version='1.1' method='GET'>
+          </http>
+        </request>
+      </transaction>
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- post comment to an image -->
+      <transaction name="post_comment_to_image_4">
       <request>
-        <http url='/images/1/down' version='1.1' method='POST'>
+        <http url="/images/4/comments?text=hello%20there" version="1.1" method="POST">
         </http>
       </request>
-      <thinktime value="1" random="true"></thinktime>
-      <request>
-        <http url='/images/5/down' version='1.1' method='POST'>
-        </http>
-      </request>
+      </transaction>
 
       <!-- wait for up to 2 seconds, user is looking at posts -->
       <thinktime value="2" random="true"></thinktime>
