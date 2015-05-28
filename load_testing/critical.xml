@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="INSERT_EC2_INSTANCE_URL_HERE" port="80" type="tcp"></server>
+    <server host="AWS_SERVER_HERE" port="80" type="tcp"></server>
   </servers>
 
 
@@ -29,10 +29,10 @@
    <arrivalphase phase="5" duration="30" unit="second">
      <users arrivalrate="16" unit="second"></users>
    </arrivalphase>
+<!--
    <arrivalphase phase="6" duration="30" unit="second">
      <users arrivalrate="32" unit="second"></users>
    </arrivalphase>
-<!--
    <arrivalphase phase="7" duration="30" unit="second">
      <users arrivalrate="64" unit="second"></users>
    </arrivalphase>
@@ -68,7 +68,7 @@
       <!-- Get list of images. -->
       <!-- TODO : add variety of locations -->
       <request>
-        <http url="/images?lat=34.0666125&amp;long=-118.44810189999998"
+        <http url="/images?lat=34.0666&amp;long=-118.448"
               method="GET" version="1.1"></http>
       </request>
 
@@ -80,6 +80,7 @@
         <http url='/images/1/up' version='1.1' method='POST'>
         </http>
       </request>
+      <thinktime value="1" random="true"></thinktime>
       <request>
         <http url='/images/2/down' version='1.1' method='POST'>
         </http>
@@ -88,6 +89,7 @@
         <http url='/images/3/up' version='1.1' method='POST'>
         </http>
       </request>
+      <thinktime value="1" random="true"></thinktime>
       <request>
         <http url='/images/4/up' version='1.1' method='POST'>
         </http>
@@ -96,6 +98,7 @@
         <http url='/images/1/down' version='1.1' method='POST'>
         </http>
       </request>
+      <thinktime value="1" random="true"></thinktime>
       <request>
         <http url='/images/5/down' version='1.1' method='POST'>
         </http>
@@ -104,14 +107,41 @@
       <!-- wait for up to 2 seconds, user is looking at posts -->
       <thinktime value="2" random="true"></thinktime>
 
+      <!-- upload an image -->
+      <setdynvars sourcetype="eval"
+                  code='fun({Pid,DynVars})-> [[13, 10]] end.'>
+        <var name="nl" />
+      </setdynvars>
+
+      <setdynvars sourcetype="eval"
+                  code='fun({Pid,DynVars})->
+                    {ok, Bin} = file:read_file("sample.jpg"),
+                    Bin
+                  end.'>
+        <var name="attached_file" />
+      </setdynvars>
+
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_submission_name" />
+      </setdynvars>
+
+      <request subst="true">
+        <http
+                url='/images?lat=34.0666&amp;long=-118.448'
+                version='1.1'
+                method='POST'
+                content_type='multipart/form-data; boundary=----FormBoundary'
+                contents='------FormBoundary%%_nl%%Content-Disposition: form-data; name="image"; filename="sample.png"%%_nl%%Content-Type: image/png%%_nl%%%%_nl%%%%_attached_file%%%%_nl%%------FormBoundary--%%_nl%%%%_nl%%
+'>
+        </http>
+      </request>
+
       <!-- reload list of images -->
       <request>
-        <http url="/images?lat=34.0666125&amp;long=-118.44810189999998"
+        <http url="/images?lat=34.0666&amp;long=-118.448"
               method="GET" version="1.1"></http>
       </request>
 
-      <!-- upload an image -->
-      <!-- TODO : How do we do this? -->
     </session>
   </sessions>
 </tsung>
