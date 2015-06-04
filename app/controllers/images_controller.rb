@@ -21,8 +21,21 @@ class ImagesController < ApplicationController
       long_lower: long - @@FIVE_MILES,
       long_upper: long + @@FIVE_MILES
     }
-    images = Image.where( "location_lat >= :lat_lower AND location_lat <= :lat_upper AND location_long >= :long_lower AND location_long <= :long_upper AND score > -5", location_bounds ).order( created_at: :desc ).limit(50)
-    render :json => to_json_safe_fields( images.all )
+
+    images = []
+    Image.order( created_at: :desc ).all.each do |img|
+      # Make sure we get each image within the bounds...
+      if ( img[:location_lat] < location_bounds[:lat_lower] ||
+          img[:location_long] < location_bounds[:long_lower] ||
+          img[:location_lat] > location_bounds[:lat_upper] ||
+          img[:location_long] > location_bounds[:long_upper] ||
+          img[:score] < -5 )
+        continue
+      end
+
+      images.push( img )
+    end
+    render :json => to_json_safe_fields( images.slice( 0, 50 ) )
 
   end
 
