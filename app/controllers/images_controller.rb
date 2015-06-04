@@ -30,7 +30,7 @@ class ImagesController < ApplicationController
           img[:location_lat] > location_bounds[:lat_upper] ||
           img[:location_long] > location_bounds[:long_upper] ||
           img[:score] < -5 )
-        continue
+        next
       end
 
       images.push( img )
@@ -128,9 +128,13 @@ class ImagesController < ApplicationController
   end
 
   def comments
-    image = Image.find params[:id]
-    comments = image.comments
-
+    comments = []
+    Comment.all.each do |c|
+      if ( c[:image_id].to_i != params[:id].to_i )
+        next
+      end
+      comments.push( c )
+    end
     render status: 200, json: comments
   end
 
